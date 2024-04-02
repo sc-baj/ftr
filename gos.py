@@ -419,9 +419,9 @@ def ua_valid():
 	tecno2 = random.choice(["TECNO CD8","itel L6005","itel L6501","TECNO KE7","TECNO IN2","TECNO CD6j","TECNO BD2p","TECNO KD7h","TECNO LA7","itel W6004","MobiGo2","TECNO LC6","TECNO KB7j","itel S661W"])
 	tecnobulid3 = random.choice(["QP1A.190711.020","PPR1.180610.011","RP1A.201005.001"])
 	tecno4 = random.choice(["7.2","7.4","7.5","7.8","7.6-;","7.3","7.7"])
-	tec = f"Dalvik/2.1.0 (Linux; Android {mmk}; {asus}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{str(rr(50,105))}.0.{str(rr(1111,4444))}.{str(rr(45,250))} Safari/537.36"
-	yo = f"Dalvik/2.1.0 (Linux; U; Android {androversi}; {tecno1}; {tecno2} Build/{tecnobulid3}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{str(rr(50,105))}.0.{str(rr(1111,4444))}.{str(rr(45,250))} Mobile Safari/537.36 PHX/{tecno4}"
-	yo1 = f"Dalvik/2.1.0 (Linux; U) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(30,114))}.0.{str(rr(3000,5555))}.{str(rr(30,150))} Mobile Safari/537.36 (SmartTV/8.5) (NetCast) (Android)"
+	tec = f"Mozilla/5.0 (Linux; Android {mmk}; {asus}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{str(rr(50,105))}.0.{str(rr(1111,4444))}.{str(rr(45,250))} Safari/537.36"
+	yo = f"Mozilla/5.0 (Linux; U; Android {androversi}; {tecno1}; {tecno2} Build/{tecnobulid3}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{str(rr(50,105))}.0.{str(rr(1111,4444))}.{str(rr(45,250))} Mobile Safari/537.36 PHX/{tecno4}"
+	yo1 = f"Mozilla/5.0 (Linux; U) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/{str(rr(30,114))}.0.{str(rr(3000,5555))}.{str(rr(30,150))} Mobile Safari/537.36 (SmartTV/8.5) (NetCast) (Android)"
 	return rc([tec,yo,yo1])
 # --------------------[ METODE-MOBILE ]-----------------#
 def crack(idf, pwv):
